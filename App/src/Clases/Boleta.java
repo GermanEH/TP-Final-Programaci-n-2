@@ -49,4 +49,15 @@ public class Boleta {
     public void setVotos(int votos) {
         this.votos = votos;
     }
+
+    @Override
+    public String toString() {
+        return "Boleta{" +
+                "nombre=" + nombre +
+                ", sigla='" + sigla + '\'' +
+                ", lista=" + lista +
+                ", votos=" + votos +
+                ", Candidatos=" + Candidatos +
+                '}';
+    }
 }
