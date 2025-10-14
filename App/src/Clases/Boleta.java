@@ -1,26 +1,28 @@
 package Clases;
 
+import Enums.Boletas;
+
 import java.util.ArrayList;
 
 public class Boleta {
-    private Boleta nombre;
+    private Boletas nombre;
     private String sigla;
     private int lista;
     private int votos;
     ArrayList<Candidato> Candidatos = new ArrayList<>();
 
-    public Boleta(Boleta nombre, String sigla, int lista, int votos) {
+    public Boleta(Boletas nombre, String sigla, int lista, int votos) {
         this.nombre = nombre;
         this.sigla = sigla;
         this.lista = lista;
         this.votos = votos;
     }
 
-    public Boleta getNombre() {
+    public Boletas getNombre() {
         return nombre;
     }
 
-    public void setNombre(Boleta nombre) {
+    public void setNombre(Boletas nombre) {
         this.nombre = nombre;
     }
 
