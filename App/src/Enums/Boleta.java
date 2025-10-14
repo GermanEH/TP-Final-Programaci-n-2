@@ -1,6 +1,6 @@
 package Enums;
 
-public enum Partidos {
+public enum Boleta {
     PARTIDO_NUEVO_BUENOS_AIRES,
     LIBER_AR,
     FUERZA_PATRIA,

@@ -1,29 +1,26 @@
 package Clases;
 
-import Enums.Partidos;
+import java.util.ArrayList;
 
-public class Partido {
-    private Partido nombre;
+public class Boleta {
+    private Boleta nombre;
     private String sigla;
     private int lista;
     private int votos;
+    ArrayList<Candidato> Candidatos = new ArrayList<>();
 
-
-    public Partido() {
-    }
-
-    public Partido(Partido nombre, String sigla, int lista, int votos) {
+    public Boleta(Boleta nombre, String sigla, int lista, int votos) {
         this.nombre = nombre;
         this.sigla = sigla;
         this.lista = lista;
         this.votos = votos;
     }
 
-    public Partido getNombre() {
+    public Boleta getNombre() {
         return nombre;
     }
 
-    public void setNombre(Partido nombre) {
+    public void setNombre(Boleta nombre) {
         this.nombre = nombre;
     }
 
