@@ -1,5 +1,6 @@
 import Clases.Administrador;
 import Clases.Boleta;
+import Clases.CentroDeVotacion;
 import Enums.Boletas;
 
 import java.util.*;
@@ -7,6 +8,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
+        CentroDeVotacion centro = new CentroDeVotacion();
 
         Boleta b1 = new Boleta(Boletas.ALIANZA_LA_LIBERTAD_AVANZA, "ALLA", 503, 0);
         Boleta b2 = new Boleta(Boletas.PARTIDO_NUEVO_BUENOS_AIRES, "PNBA", 221, 0);
@@ -141,11 +144,11 @@ public class Main {
                                     break;
                                 }
                                 case 5: {
-
+                                    centro.iniciarVotacion();
                                     break;
                                 }
                                 case 6: {
-
+                                    centro.cerrarVotacion();
                                     break;
                                 }
                                 case 7: {
