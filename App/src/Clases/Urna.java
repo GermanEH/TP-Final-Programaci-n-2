@@ -1,13 +1,15 @@
 package Clases;
 import Interfaces.Registro;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 public class Urna implements Registro<Voto> {
 
     private List<Voto> urnaVotos;
 
-    public Urna(List<Voto> urnaVotos) {
-        this.urnaVotos = urnaVotos;
+    public Urna() {
+        this.urnaVotos = new ArrayList<>();
     }
 
     public List<Voto> getUrnaVotos() {

@@ -50,6 +50,8 @@ public class Boleta {
         this.votos = votos;
     }
 
+    public void aumentarVotos() {votos = votos++;}
+
     @Override
     public String toString() {
         return "Boleta{" +

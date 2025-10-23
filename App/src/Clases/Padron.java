@@ -25,7 +25,7 @@ public final class Padron implements Registro<Votante> {
 
     }
 
-    public static boolean buscarVotante(int numero) {
+    public static boolean buscarPersona(int numero) {
         for (Votante votante : Votantes) {
             if (votante.getNumero() == numero) {
                 return true;
@@ -35,7 +35,7 @@ public final class Padron implements Registro<Votante> {
         return false;
     }
 
-    public static boolean buscarVotante(String dni) {
+    public static boolean buscarPersona(String dni) {
         for (Votante votante : Votantes) {
             if (votante.getDni().equals(dni)) {
                 return true;
