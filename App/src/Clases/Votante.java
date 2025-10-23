@@ -1,5 +1,7 @@
 package Clases;
 
+import java.util.List;
+
 public class Votante extends Persona{
     private int numero;
     private boolean voto = false;
@@ -19,16 +21,17 @@ public class Votante extends Persona{
         this.numero = numero;
     }
 
-    public void votar (Boleta boleta){
-        boleta.setVotos(boleta.getVotos()+1);
-        voto = true;
-    }
-
     public boolean getVoto() {
         return voto;
     }
 
     public void setVoto(boolean voto) {
         this.voto = voto;
+    }
+
+    public Voto votar (BoletaUnica boletaUnica, int numeroLista){
+       Boleta boletaElegida = boletaUnica.buscarPorLista(numeroLista);
+       Voto votoRealizado = new Voto (boletaElegida, true);
+       return votoRealizado;
     }
 }

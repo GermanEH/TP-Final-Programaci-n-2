@@ -37,5 +37,8 @@ public class Urna implements Registro<Voto> {
         }
     }
 
-
+    @Override
+    public Voto buscar(Voto voto) {
+        return null;
+    }
 }
