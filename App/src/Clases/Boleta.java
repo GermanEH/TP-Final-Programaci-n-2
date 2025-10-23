@@ -8,14 +8,13 @@ public class Boleta {
     private Boletas nombre;
     private String sigla;
     private int lista;
-    private int votos;
+    private int votos = 0;
     ArrayList<Candidato> Candidatos = new ArrayList<>();
 
-    public Boleta(Boletas nombre, String sigla, int lista, int votos) {
+    public Boleta(Boletas nombre, String sigla, int lista) {
         this.nombre = nombre;
         this.sigla = sigla;
         this.lista = lista;
-        this.votos = votos;
     }
 
     public Boletas getNombre() {

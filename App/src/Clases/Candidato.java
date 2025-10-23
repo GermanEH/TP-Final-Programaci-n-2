@@ -1,6 +1,10 @@
 package Clases;
+
 import Enums.Boletas;
-public class Candidato extends Persona{
+
+import java.util.Objects;
+
+public class Candidato extends Persona {
     private Boletas boleta;
     private String puesto;
     private String trabajo;
@@ -8,18 +12,19 @@ public class Candidato extends Persona{
     public Candidato() {
     }
 
-    public Candidato(Boletas partido, String puesto, String trabajo) {
-        this.boleta = partido;
+    public Candidato(String nombre, String apellido, int edad, String dni, Boletas boleta, String puesto, String trabajo) {
+        super(nombre, apellido, edad, dni);
+        this.boleta = boleta;
         this.puesto = puesto;
         this.trabajo = trabajo;
     }
 
-    public Boletas getPartido() {
+    public Boletas getBoleta() {
         return boleta;
     }
 
-    public void setPartido(Boletas partido) {
-        this.boleta = partido;
+    public void setBoleta(Boletas boleta) {
+        this.boleta = boleta;
     }
 
     public String getPuesto() {
@@ -36,6 +41,17 @@ public class Candidato extends Persona{
 
     public void setTrabajo(String trabajo) {
         this.trabajo = trabajo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Candidato candidato)) return false;
+        return boleta == candidato.boleta && Objects.equals(puesto, candidato.puesto) && Objects.equals(trabajo, candidato.trabajo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(boleta, puesto, trabajo);
     }
 
     @Override
