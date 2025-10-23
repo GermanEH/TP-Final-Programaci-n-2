@@ -1,11 +1,29 @@
 package Clases;
 
+import Interfaces.Registro;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public final class Padron {
+public final class Padron implements Registro<Votante> {
 
     private static ArrayList<Votante> Votantes = new ArrayList<>();
+
+
+    @Override
+    public void agregar(Votante votante) {
+
+    }
+
+    @Override
+    public void eliminar(Votante votante) {
+
+    }
+
+    @Override
+    public void mostrar() {
+
+    }
 
     public static boolean buscarVotante(int numero) {
         for (Votante votante : Votantes) {
