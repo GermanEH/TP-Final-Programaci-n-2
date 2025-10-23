@@ -1,24 +1,24 @@
 package Clases;
-import Enums.Boleta;
+import Enums.Boletas;
 public class Candidato extends Persona{
-    private Boleta boleta;
+    private Boletas boleta;
     private String puesto;
     private String trabajo;
 
     public Candidato() {
     }
 
-    public Candidato(Boleta partido, String puesto, String trabajo) {
+    public Candidato(Boletas partido, String puesto, String trabajo) {
         this.boleta = partido;
         this.puesto = puesto;
         this.trabajo = trabajo;
     }
 
-    public Boleta getPartido() {
+    public Boletas getPartido() {
         return boleta;
     }
 
-    public void setPartido(Boleta partido) {
+    public void setPartido(Boletas partido) {
         this.boleta = partido;
     }
 
