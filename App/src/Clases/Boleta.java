@@ -7,14 +7,14 @@ import java.util.ArrayList;
 public class Boleta {
     private Boletas nombre;
     private String sigla;
-    private int numeroLista;
+    private int Lista;
     private int votos;
     ArrayList<Candidato> Candidatos = new ArrayList<>();
 
-    public Boleta(Boletas nombre, String sigla, int lista, int votos) {
+    public Boleta(Boletas nombre, String sigla, int Lista, int votos) {
         this.nombre = nombre;
         this.sigla = sigla;
-        this.numeroLista = lista;
+        this.Lista = Lista;
         this.votos = votos;
     }
 
@@ -29,23 +29,21 @@ public class Boleta {
     public String getSigla() {
         return sigla;
     }
-
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
 
-    public int getNumeroLista() {
-        return numeroLista;
+    public int getLista() {
+        return Lista;
     }
 
-    public void setNumeroLista(int numeroLista) {
-        this.numeroLista = numeroLista;
+    public void setLista(int lista) {
+        this.Lista = lista;
     }
 
     public int getVotos() {
         return votos;
     }
-
     public void setVotos(int votos) {
         this.votos = votos;
     }
@@ -55,7 +53,7 @@ public class Boleta {
         return "Boleta{" +
                 "nombre=" + nombre +
                 ", sigla='" + sigla + '\'' +
-                ", numeroLista=" + numeroLista +
+                ", Lista=" + Lista +
                 ", votos=" + votos +
                 ", Candidatos=" + Candidatos +
                 '}';

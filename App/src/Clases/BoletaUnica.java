@@ -39,7 +39,6 @@ public class BoletaUnica implements Registro<Boleta> {
     public void mostrar() {
         if (boletaUnica.isEmpty()) {
             System.out.println("No hay boletas disponibles");
-            return;
         } else {
             System.out.println("----------BOLETAS DISPONIBLES----------");
 
@@ -61,7 +60,7 @@ public class BoletaUnica implements Registro<Boleta> {
 
     public Boleta buscarPorLista(int lista) {
         for (Boleta boleta : boletaUnica) {
-            if (boleta.getNumeroLista() == lista) {
+            if (boleta.getLista() == lista) {
                 return boleta;
             }
         }
