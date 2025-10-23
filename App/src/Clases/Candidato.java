@@ -37,4 +37,13 @@ public class Candidato extends Persona{
     public void setTrabajo(String trabajo) {
         this.trabajo = trabajo;
     }
+
+    @Override
+    public String toString() {
+        return "Candidato{" +
+                "boleta=" + boleta +
+                ", puesto='" + puesto + '\'' +
+                ", trabajo='" + trabajo + '\'' +
+                '}';
+    }
 }

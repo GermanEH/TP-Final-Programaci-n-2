@@ -1,30 +1,40 @@
 package Clases;
 
+import java.util.Objects;
+
 public class Administrador {
-    private String nombreUsuario;
-    private String contrasenia;
+    private String username;
+    private String password;
 
-    public Administrador() {
+    public Administrador(String username, String password) {
+        this.user = username;
+        this.password = password;
     }
 
-    public Administrador(String nombreUsuario, String contrasenia) {
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenia = contrasenia;
+    public String getUsername() {
+        return username;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public String getPassword() {
+        return password;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Administrador that)) return false;
+        return Objects.equals(user, that.username) && Objects.equals(password, that.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password);
     }
 }
