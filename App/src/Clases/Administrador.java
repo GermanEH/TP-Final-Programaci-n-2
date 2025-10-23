@@ -7,7 +7,7 @@ public class Administrador {
     private String password;
 
     public Administrador(String username, String password) {
-        this.user = username;
+        this.username = username;
         this.password = password;
     }
 
@@ -30,7 +30,7 @@ public class Administrador {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Administrador that)) return false;
-        return Objects.equals(user, that.username) && Objects.equals(password, that.password);
+        return Objects.equals(username, that.username) && Objects.equals(password, that.password);
     }
 
     @Override
