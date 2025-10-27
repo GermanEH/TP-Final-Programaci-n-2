@@ -4,7 +4,6 @@ import Excepciones.VotanteException;
 import Interfaces.Registro;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public final class Padron implements Registro<Votante> {
 
@@ -23,12 +22,25 @@ public final class Padron implements Registro<Votante> {
 
     @Override
     public void eliminar(Votante votante) {
-
+    votantes.remove(votante);
     }
 
     @Override
     public void mostrar() {
+      for (Votante votante : votantes) {
+        System.out.println(votante);
+      }
+    }
 
+    @Override
+    public Votante buscar(Votante votante) {
+        for (Votante v : votantes){
+            if (v.getNumero() == votante.getNumero()){
+                return v;
+            }
+        }
+        System.out.println("No se encontro el votante en el padron");
+        return null;
     }
 
     public static boolean buscarPersona(int numero) {
@@ -50,4 +62,6 @@ public final class Padron implements Registro<Votante> {
 
         return false;
     }
+
+
 }

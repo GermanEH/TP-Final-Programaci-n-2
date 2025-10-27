@@ -30,7 +30,6 @@ public class Boleta {
     public String getSigla() {
         return sigla;
     }
-
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
@@ -46,7 +45,6 @@ public class Boleta {
     public int getVotos() {
         return votos;
     }
-
     public void setVotos(int votos) {
         this.votos = votos;
     }

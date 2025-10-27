@@ -1,5 +1,6 @@
 package Clases;
 
+
 public class Votante extends Persona {
     private int numero;
     private boolean voto;
@@ -37,5 +38,11 @@ public class Votante extends Persona {
 
     public void setVoto(boolean voto) {
         this.voto = voto;
+    }
+
+    public Voto votar (BoletaUnica boletaUnica, int numeroLista){
+       Boleta boletaElegida = boletaUnica.buscarPorLista(numeroLista);
+       Voto votoRealizado = new Voto (boletaElegida, true);
+       return votoRealizado;
     }
 }
