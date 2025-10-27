@@ -3,25 +3,25 @@ package Clases;
 import java.util.Objects;
 
 public class Candidato extends Persona {
-    private Boletas boleta;
+    private String boleta;
     private String puesto;
     private String trabajo;
 
     public Candidato() {
     }
 
-    public Candidato(String nombre, String apellido, int edad, String dni, Boletas boleta, String puesto, String trabajo) {
+    public Candidato(String nombre, String apellido, int edad, String dni, String boleta, String puesto, String trabajo) {
         super(nombre, apellido, edad, dni);
         this.boleta = boleta;
         this.puesto = puesto;
         this.trabajo = trabajo;
     }
 
-    public Boletas getBoleta() {
+    public String getBoleta() {
         return boleta;
     }
 
-    public void setBoleta(Boletas boleta) {
+    public void setBoleta(String boleta) {
         this.boleta = boleta;
     }
 
@@ -44,7 +44,7 @@ public class Candidato extends Persona {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Candidato candidato)) return false;
-        return boleta == candidato.boleta && Objects.equals(puesto, candidato.puesto) && Objects.equals(trabajo, candidato.trabajo);
+        return Objects.equals(boleta, candidato.boleta) && Objects.equals(puesto, candidato.puesto) && Objects.equals(trabajo, candidato.trabajo);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Candidato extends Persona {
     @Override
     public String toString() {
         return "Candidato{" +
-                "boleta=" + boleta +
+                "boleta='" + boleta + '\'' +
                 ", puesto='" + puesto + '\'' +
                 ", trabajo='" + trabajo + '\'' +
                 '}';

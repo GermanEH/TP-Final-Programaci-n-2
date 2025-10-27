@@ -1,10 +1,17 @@
 package Clases;
 
-public class Votante extends Persona{
+public class Votante extends Persona {
     private int numero;
-    private boolean voto = false;
+    private boolean voto;
 
     public Votante() {
+        this.voto = false;
+    }
+
+    public Votante(String nombre, String apellido, int edad, String dni, int numero) {
+        super(nombre, apellido, edad, dni);
+        this.numero = numero;
+        this.voto = false;
     }
 
     public Votante(int numero) {
@@ -19,8 +26,8 @@ public class Votante extends Persona{
         this.numero = numero;
     }
 
-    public void votar (Boleta boleta){
-        boleta.setVotos(boleta.getVotos()+1);
+    public void votar(Boleta boleta) {
+        boleta.setVotos(boleta.getVotos() + 1);
         voto = true;
     }
 

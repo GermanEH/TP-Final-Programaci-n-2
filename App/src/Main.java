@@ -7,6 +7,9 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         CentroDeVotacion centro = new CentroDeVotacion();
+        Padron padron = new Padron();
+
+        Votante v1 = new Votante("Mauricio","Tognocchi",21,"45923395",);
 
         Boleta b1 = new Boleta("ALIANZA_LA_LIBERTAD_AVANZA", "ALLA", 503);
         Boleta b2 = new Boleta("PARTIDO_NUEVO_BUENOS_AIRES", "PNBA", 221);
@@ -82,10 +85,9 @@ public class Main {
                     int numVoto = scan.nextInt();
                     scan.nextLine();
 
-                    if (Padron.buscarVotante(dni) && Padron.buscarVotante(numVoto)) {
+                    if (Padron.buscarPersona(dni) && Padron.buscarPersona(numVoto)) {
                         System.out.println("Bienvenido votante.");
-                        List<String> b = Boletas.valueOf();
-
+                        mostrarBoletas(boletas);
                     } else {
                         System.out.println("ERROR: Dni o N de votacion incorrecto");
                     }
@@ -124,7 +126,7 @@ public class Main {
                             switch (menuAdmin) {
                                 case 1: {
                                     System.out.println("Ingrese el nombre de la boleta : ");
-                                    String bNombre = scan.nextLine(); /// NO SE SI QUIEREN ENUM O STRING
+                                    String bNombre = scan.nextLine();
 
                                     System.out.println("Las siglas de la boleta");
                                     String bSiglas = scan.nextLine();
@@ -146,13 +148,16 @@ public class Main {
                                         int cEdad = scan.nextInt();
                                         scan.nextLine();
 
+                                        System.out.println("Ingrese el dni del candidato");
+                                        String cDni = scan.nextLine();
+
                                         System.out.println("Ingrese el puesto del candidato: ");
                                         String cPuesto = scan.nextLine();
 
                                         System.out.println("Ingrese el trabajo del candidato: ");
                                         String cTrabajo = scan.nextLine();
 
-                                        Candidato c = new Candidato(b, cNombre, cApellido, cEdad, cPuesto, cTrabajo);
+                                        Candidato c = new Candidato(cNombre, cApellido, cEdad, cDni, bNombre, cPuesto, cTrabajo);
                                     }
                                     break;
                                 }
@@ -169,11 +174,11 @@ public class Main {
                                     break;
                                 }
                                 case 5: {
-                                    centro.iniciarVotacion();
+
                                     break;
                                 }
                                 case 6: {
-                                    centro.cerrarVotacion();
+
                                     break;
                                 }
                                 case 7: {
@@ -200,5 +205,15 @@ public class Main {
     public static void pausa(Scanner scan) {
         System.out.println("PRESIONE ENTER PARA CONTINUAR.");
         scan.nextLine();
+    }
+
+    public static void mostrarBoletas(List<Boleta> boletas) {
+        int i = 1;
+        for (Boleta b : boletas) {
+            System.out.println(b);
+            for (Candidato c : b.getCandidatos()) {
+                System.out.println(c);
+            }
+        }
     }
 }

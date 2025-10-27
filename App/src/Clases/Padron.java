@@ -9,6 +9,8 @@ public final class Padron implements Registro<Votante> {
 
     private static ArrayList<Votante> Votantes = new ArrayList<>();
 
+    public Padron() {
+    }
 
     @Override
     public void agregar(Votante votante) {
@@ -41,9 +43,7 @@ public final class Padron implements Registro<Votante> {
                 return true;
             }
         }
-        ;
+
         return false;
     }
-
-
 }

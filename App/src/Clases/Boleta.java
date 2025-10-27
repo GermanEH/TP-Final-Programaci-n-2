@@ -23,42 +23,40 @@ public class Boleta {
         return nombre;
     }
 
-    public String getSigla() {
-        return sigla;
-    }
-
-    public int getLista() {
-        return lista;
-    }
-
-    public int getVotos() {
-        return votos;
-    }
-
-    public ArrayList<Candidato> getCandidatos() {
-        return candidatos;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getSigla() {
+        return sigla;
     }
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
 
+    public int getLista() {
+        return lista;
+    }
+
     public void setLista(int lista) {
         this.lista = lista;
+    }
+
+    public int getVotos() {
+        return votos;
     }
 
     public void setVotos(int votos) {
         this.votos = votos;
     }
 
-    public void aumentarVotos() {votos = votos++;}
+    public ArrayList<Candidato> getCandidatos() {
+        return candidatos;
+    }
 
     public void setCandidatos(ArrayList<Candidato> candidatos) {
-        candidatos = candidatos;
+        this.candidatos = candidatos;
     }
 
     @Override
@@ -107,4 +105,7 @@ public class Boleta {
         return false;
     }
 
+    public void aumentarVotos() {
+        votos++;
+    }
 }
