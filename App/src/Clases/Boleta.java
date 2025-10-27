@@ -7,15 +7,14 @@ import java.util.ArrayList;
 public class Boleta {
     private Boletas nombre;
     private String sigla;
-    private int Lista;
-    private int votos;
+    private int lista;
+    private int votos = 0;
     ArrayList<Candidato> Candidatos = new ArrayList<>();
 
-    public Boleta(Boletas nombre, String sigla, int Lista, int votos) {
+    public Boleta(Boletas nombre, String sigla, int lista) {
         this.nombre = nombre;
         this.sigla = sigla;
-        this.Lista = Lista;
-        this.votos = votos;
+        this.lista = lista;
     }
 
     public Boletas getNombre() {
