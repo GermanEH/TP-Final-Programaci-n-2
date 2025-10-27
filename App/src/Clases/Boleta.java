@@ -28,35 +28,31 @@ public class Boleta {
     public String getSigla() {
         return sigla;
     }
-
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
 
     public int getLista() {
-        return lista;
+        return Lista;
     }
 
     public void setLista(int lista) {
-        this.lista = lista;
+        this.Lista = lista;
     }
 
     public int getVotos() {
         return votos;
     }
-
     public void setVotos(int votos) {
         this.votos = votos;
     }
-
-    public void aumentarVotos() {votos = votos++;}
 
     @Override
     public String toString() {
         return "Boleta{" +
                 "nombre=" + nombre +
                 ", sigla='" + sigla + '\'' +
-                ", lista=" + lista +
+                ", Lista=" + Lista +
                 ", votos=" + votos +
                 ", Candidatos=" + Candidatos +
                 '}';
