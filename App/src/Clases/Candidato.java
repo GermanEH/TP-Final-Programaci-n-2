@@ -1,7 +1,5 @@
 package Clases;
 
-import Enums.Boletas;
-
 import java.util.Objects;
 
 public class Candidato extends Persona {
