@@ -1,6 +1,8 @@
 package Clases;
 
-public abstract class Persona {
+import java.util.ArrayList;
+
+public abstract class Persona<T> {
     private String nombre;
     private String apellido;
     private int edad;

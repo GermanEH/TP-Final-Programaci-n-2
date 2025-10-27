@@ -55,6 +55,8 @@ public class Boleta {
         this.votos = votos;
     }
 
+    public void aumentarVotos() {votos = votos++;}
+
     public void setCandidatos(ArrayList<Candidato> candidatos) {
         candidatos = candidatos;
     }
