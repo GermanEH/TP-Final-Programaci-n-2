@@ -9,7 +9,8 @@ public class Main {
         CentroDeVotacion centro = new CentroDeVotacion();
         Padron padron = new Padron();
 
-        Votante v1 = new Votante("Mauricio","Tognocchi",21,"45923395",);
+        Votante v1 = new Votante("Mauricio","Tognocchi",21,"45923395",13);
+        padron.agregar(v1);
 
         Boleta b1 = new Boleta("ALIANZA_LA_LIBERTAD_AVANZA", "ALLA", 503);
         Boleta b2 = new Boleta("PARTIDO_NUEVO_BUENOS_AIRES", "PNBA", 221);

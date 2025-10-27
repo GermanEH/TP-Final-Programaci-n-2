@@ -1,5 +1,6 @@
 package Clases;
 
+import Excepciones.VotanteException;
 import Interfaces.Registro;
 
 import java.util.ArrayList;
@@ -7,14 +8,17 @@ import java.util.HashMap;
 
 public final class Padron implements Registro<Votante> {
 
-    private static ArrayList<Votante> Votantes = new ArrayList<>();
+    private static ArrayList<Votante> votantes = new ArrayList<>();
 
     public Padron() {
     }
 
     @Override
-    public void agregar(Votante votante) {
-
+    public void agregar(Votante v) throws VotanteException {
+        if (v == null){
+            throw new VotanteException("ERROR: NO SE PERMITE AGREGAR VOTANTE NULO.");
+        }
+        votantes.add(v);
     }
 
     @Override
@@ -28,7 +32,7 @@ public final class Padron implements Registro<Votante> {
     }
 
     public static boolean buscarPersona(int numero) {
-        for (Votante votante : Votantes) {
+        for (Votante votante : votantes) {
             if (votante.getNumero() == numero) {
                 return true;
             }
@@ -38,7 +42,7 @@ public final class Padron implements Registro<Votante> {
     }
 
     public static boolean buscarPersona(String dni) {
-        for (Votante votante : Votantes) {
+        for (Votante votante : votantes) {
             if (votante.getDni().equals(dni)) {
                 return true;
             }
