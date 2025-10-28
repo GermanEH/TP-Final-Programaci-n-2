@@ -61,22 +61,24 @@ public class Boleta {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Boleta boleta)) return false;
-        return lista == boleta.lista && votos == boleta.votos && Objects.equals(nombre, boleta.nombre) && Objects.equals(sigla, boleta.sigla) && Objects.equals(candidatos, boleta.candidatos);
+        if (this == o) return true;
+        if (!(o instanceof Boleta)) return false;
+        Boleta boleta = (Boleta) o;
+        return lista == boleta.lista;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, sigla, lista, votos, candidatos);
+        return Objects.hash(lista);
     }
 
     @Override
     public String toString() {
-        return "| BOLETA | :  " + nombre + " ="+sigla +"="+"LISTA "+lista;
+        return "| BOLETA | :  " + nombre + " =" + sigla + "=" + "LISTA " + lista;
     }
 
     public boolean agregarCandidato(Candidato c) {
-        if (candidatos.size() > 5 || c == null) {
+        if (candidatos.size() >= 5 || c == null) {
             return false;
         } else {
             return candidatos.add(c);

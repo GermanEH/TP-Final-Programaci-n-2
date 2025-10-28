@@ -43,7 +43,7 @@ public final class Padron implements Registro<Votante> {
         return null;
     }
 
-    public Votante buscarPorDniYDniVoto(String dni, int numeroVoto) {
+    public Votante buscarPorDniYNVoto(String dni, int numeroVoto) {
         for (Votante v : votantes) {
             if (v.getDni().equals(dni) && v.getNumero() == numeroVoto) {
                 return v;

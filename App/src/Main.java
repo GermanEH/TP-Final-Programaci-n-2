@@ -153,11 +153,12 @@ public class Main {
                     try {
                         System.out.print("Ingrese su DNI: ");
                         String dni = scan.nextLine();
+
                         System.out.print("Ingrese su número de votación: ");
                         int numVoto = scan.nextInt();
                         scan.nextLine();
 
-                        Votante votante = padron.buscarPorDniYDniVoto(dni, numVoto);
+                        Votante votante = padron.buscarPorDniYNVoto(dni, numVoto);
                         if (votante == null) {
                             throw new VotanteException("ERROR: DNI o número de votación incorrectos.");
                         }
@@ -165,6 +166,10 @@ public class Main {
                         System.out.println("=========================================================================================================");
                         System.out.println("                           BIENVENIDO VOTANTE: " + votante.getNombre()) ;
                         pausa(scan);
+
+                        int turno = centro.asignarTurno(votante);
+                        System.out.println("SU TURNO ES : "+ turno);
+
                         System.out.println("BOLETAS DISPONIBLES PARA VOTAR:");
                         boletaUnica.mostrar();
 
@@ -246,19 +251,82 @@ public class Main {
                                         System.out.println("Ingrese el trabajo del candidato: ");
                                         String cTrabajo = scan.nextLine();
                                         Candidato c = new Candidato(cNombre, cApellido, cEdad, cDni, bNombre, cPuesto, cTrabajo);
+                                        b.agregarCandidato(c);
                                     }
+                                    boletaUnica.agregar(b);
                                     break;
                                 }
                                 case 2: {
-                                    System.out.println("Funcionalidad de eliminar boleta pendiente...");
+                                    System.out.println("Ingrese el numero de lista de la boleta para eliminarla : ");
+                                    int nLista = scan.nextInt();
+                                    scan.nextLine();
+                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+                                    if (b != null) {
+                                        boletaUnica.eliminar(b);
+                                        System.out.println("Boleta eliminada correctamente. ");
+                                    } else {
+                                        System.out.println("No se encontró la boleta. ");
+                                    }
+
                                     break;
                                 }
                                 case 3: {
-                                    System.out.println("Funcionalidad de agregar candidato pendiente...");
+                                    System.out.println("Ingrese el número de lista de la boleta donde quiere agregar un candidato: ");
+                                    int nLista = scan.nextInt();
+                                    scan.nextLine();
+                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+
+                                    if (b != null) {
+                                        System.out.println("Ingrese el nombre del candidato: ");
+                                        String cNombre = scan.nextLine();
+                                        System.out.println("Ingrese el apellido del candidato: ");
+                                        String cApellido = scan.nextLine();
+                                        System.out.println("Ingrese la edad del candidato: ");
+                                        int cEdad = scan.nextInt();
+                                        scan.nextLine();
+                                        System.out.println("Ingrese el DNI del candidato: ");
+                                        String cDni = scan.nextLine();
+                                        System.out.println("Ingrese el puesto del candidato: ");
+                                        String cPuesto = scan.nextLine();
+                                        System.out.println("Ingrese el trabajo del candidato: ");
+                                        String cTrabajo = scan.nextLine();
+
+                                        Candidato c = new Candidato(cNombre, cApellido, cEdad, cDni, b.getNombre(), cPuesto, cTrabajo);
+                                        b.agregarCandidato(c);
+                                        System.out.println("Candidato agregado a la boleta " + b.getNombre());
+                                    } else {
+                                        System.out.println("No se encontró la boleta con número de lista " + nLista);
+                                    }
                                     break;
                                 }
                                 case 4: {
-                                    System.out.println("Funcionalidad de eliminar candidato pendiente...");
+                                    System.out.println("Ingrese el número de lista de la boleta donde quiere eliminar un candidato: ");
+                                    int nLista = scan.nextInt();
+                                    scan.nextLine();
+                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+
+                                    if (b != null) {
+                                        System.out.println("Candidatos disponibles:");
+                                        int i = 1;
+                                        for (Candidato c : b.getCandidatos()) {
+                                            System.out.println(i + ". " + c.getNombre() + " " + c.getApellido() + " - " + c.getPuesto());
+                                            i++;
+                                        }
+
+                                        System.out.println("Ingrese el número del candidato a eliminar: ");
+                                        int numCandidato = scan.nextInt();
+                                        scan.nextLine();
+
+                                        if (numCandidato > 0 && numCandidato <= b.getCandidatos().size()) {
+                                            Candidato cEliminar = b.getCandidatos().get(numCandidato - 1);
+                                            b.eliminarCandidato(cEliminar);
+                                            System.out.println("Candidato eliminado de la boleta " + b.getNombre());
+                                        } else {
+                                            System.out.println("Número de candidato inválido.");
+                                        }
+                                    } else {
+                                        System.out.println("No se encontró la boleta con número de lista " + nLista);
+                                    }
                                     break;
                                 }
                                 case 5: {
