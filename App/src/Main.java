@@ -211,12 +211,13 @@ public class Main {
                             pausa(scan);
                             System.out.println("""
                                     |-----------------------------------------------| 
-                                    |1. Agregar boleta.                             | 
-                                    |2. Eliminar boleta.                            | 
-                                    |3. Agregar candidato.                          |
-                                    |4. Eliminar candidato.                         | 
-                                    |5. Iniciar votacion.                           |
-                                    |6. Cerrar votacion.                            | 
+                                    |1. Ver boletas.                                | 
+                                    |2. Agregar boleta.                             | 
+                                    |3. Eliminar boleta.                            | 
+                                    |4. Agregar candidato.                          |
+                                    |5. Eliminar candidato.                         | 
+                                    |6. Iniciar votacion.                           |
+                                    |7. Cerrar votacion.                            | 
                                     |0. Cerrar sesion.                              | 
                                     |-----------------------------------------------| """);
                             System.out.print("OPCION: ");
@@ -228,36 +229,24 @@ public class Main {
                                     break;
                                 }
                                 case 1: {
-                                    System.out.println("Ingrese el nombre de la boleta : ");
-                                    String bNombre = scan.nextLine();
-                                    System.out.println("Las siglas de la boleta");
-                                    String bSiglas = scan.nextLine();
-                                    System.out.println("Ingrese el numero de lista.");
-                                    int bLista = scan.nextInt();
-                                    scan.nextLine();
-                                    Boleta b = new Boleta(bNombre, bSiglas, bLista);
-                                    for (int i = 0; i < 5; i++) {
-                                        System.out.println("Ingrese el nombre del candidato: ");
-                                        String cNombre = scan.nextLine();
-                                        System.out.println("Ingrese el apellido del candidato: ");
-                                        String cApellido = scan.nextLine();
-                                        System.out.println("Ingrese la edad del candidato :");
-                                        int cEdad = scan.nextInt();
-                                        scan.nextLine();
-                                        System.out.println("Ingrese el dni del candidato");
-                                        String cDni = scan.nextLine();
-                                        System.out.println("Ingrese el puesto del candidato: ");
-                                        String cPuesto = scan.nextLine();
-                                        System.out.println("Ingrese el trabajo del candidato: ");
-                                        String cTrabajo = scan.nextLine();
-                                        Candidato c = new Candidato(cNombre, cApellido, cEdad, cDni, bNombre, cPuesto, cTrabajo);
-                                        b.agregarCandidato(c);
-                                    }
-                                    boletaUnica.agregar(b);
+                                    boletaUnica.mostrar();
                                     break;
                                 }
                                 case 2: {
-                                    System.out.println("Ingrese el numero de lista de la boleta para eliminarla : ");
+                                    System.out.print("Ingrese el nombre de la boleta : ");
+                                    String bNombre = scan.nextLine();
+                                    System.out.print("Las siglas de la boleta : ");
+                                    String bSiglas = scan.nextLine();
+                                    System.out.print("Ingrese el numero de lista : ");
+                                    int bLista = scan.nextInt();
+                                    scan.nextLine();
+                                    Boleta b = new Boleta(bNombre, bSiglas, bLista);
+
+                                    boletaUnica.agregar(b);
+                                    break;
+                                }
+                                case 3: {
+                                    System.out.print("Ingrese el numero de lista de la boleta para eliminarla : ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
                                     Boleta b = boletaUnica.buscarPorLista(nLista);
@@ -270,25 +259,25 @@ public class Main {
 
                                     break;
                                 }
-                                case 3: {
-                                    System.out.println("Ingrese el número de lista de la boleta donde quiere agregar un candidato: ");
+                                case 4: {
+                                    System.out.print("Ingrese el número de lista de la boleta donde quiere agregar un candidato: ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
                                     Boleta b = boletaUnica.buscarPorLista(nLista);
 
                                     if (b != null) {
-                                        System.out.println("Ingrese el nombre del candidato: ");
+                                        System.out.print("Ingrese el nombre del candidato : ");
                                         String cNombre = scan.nextLine();
-                                        System.out.println("Ingrese el apellido del candidato: ");
+                                        System.out.print("Ingrese el apellido del candidato : ");
                                         String cApellido = scan.nextLine();
-                                        System.out.println("Ingrese la edad del candidato: ");
+                                        System.out.print("Ingrese la edad del candidato : ");
                                         int cEdad = scan.nextInt();
                                         scan.nextLine();
-                                        System.out.println("Ingrese el DNI del candidato: ");
+                                        System.out.print("Ingrese el DNI del candidato : ");
                                         String cDni = scan.nextLine();
-                                        System.out.println("Ingrese el puesto del candidato: ");
+                                        System.out.print("Ingrese el puesto del candidato : ");
                                         String cPuesto = scan.nextLine();
-                                        System.out.println("Ingrese el trabajo del candidato: ");
+                                        System.out.print("Ingrese el trabajo del candidato : ");
                                         String cTrabajo = scan.nextLine();
 
                                         Candidato c = new Candidato(cNombre, cApellido, cEdad, cDni, b.getNombre(), cPuesto, cTrabajo);
@@ -299,8 +288,8 @@ public class Main {
                                     }
                                     break;
                                 }
-                                case 4: {
-                                    System.out.println("Ingrese el número de lista de la boleta donde quiere eliminar un candidato: ");
+                                case 5: {
+                                    System.out.print("Ingrese el número de lista de la boleta donde quiere eliminar un candidato: ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
                                     Boleta b = boletaUnica.buscarPorLista(nLista);
@@ -313,7 +302,7 @@ public class Main {
                                             i++;
                                         }
 
-                                        System.out.println("Ingrese el número del candidato a eliminar: ");
+                                        System.out.print("Ingrese el número del candidato a eliminar: ");
                                         int numCandidato = scan.nextInt();
                                         scan.nextLine();
 
@@ -329,12 +318,12 @@ public class Main {
                                     }
                                     break;
                                 }
-                                case 5: {
+                                case 6: {
                                     centro.abrirVotacion();
                                     System.out.println("Votación iniciada.");
                                     break;
                                 }
-                                case 6: {
+                                case 7: {
                                     centro.cerrarVotacion();
                                     System.out.println("Votación cerrada.");
                                     break;

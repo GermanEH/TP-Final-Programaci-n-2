@@ -79,8 +79,13 @@ public class Boleta {
 
     public boolean agregarCandidato(Candidato c) {
         if (candidatos.size() >= 5 || c == null) {
-            return false;
+            return false; // si se pasa de 5 candidatos no lo agrego
         } else {
+            for (Candidato candidato : candidatos) {
+                if(candidato.getDni().equalsIgnoreCase(c.getDni())){
+                    return false; // si existe no lo agrego
+                }
+            }
             return candidatos.add(c);
         }
     }
