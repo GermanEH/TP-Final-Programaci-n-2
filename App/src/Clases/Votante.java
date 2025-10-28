@@ -41,8 +41,20 @@ public class Votante extends Persona {
     }
 
     public Voto votar (BoletaUnica boletaUnica, int numeroLista){
-       Boleta boletaElegida = boletaUnica.buscarPorLista(numeroLista);
-       Voto votoRealizado = new Voto (boletaElegida, true);
+
+        if(this.voto){ // si ya tiene true porque voto antes devuelvo un Voto nulo.
+            return new Voto(null, false);
+        }
+
+       Boleta b = boletaUnica.buscarPorLista(numeroLista); // Busco la boleta
+       boolean validez = b != null; // Si existe
+       Voto votoRealizado = new Voto (b, validez); // Creo un voto con boleta unica y Validez.
+
+       if (validez){
+           b.aumentarVotos(); // Si existe aumento el contador de la boleta unica
+           this.voto = true; // Pongo el voto en true
+       }
+
        return votoRealizado;
     }
 }

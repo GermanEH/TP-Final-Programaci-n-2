@@ -60,7 +60,7 @@ public class CentroDeVotacion {
         }
         Boleta ganador = null;
         for(Voto voto:urna.getUrnaVotos()){
-            if(!voto.isValidez()) {
+            if(!voto.getValidez()) {
                 //this.resultado.get("En blanco").aumentarVotos();
             } else {
                 this.resultado.get(voto.getBoleta().getNombre()).aumentarVotos();

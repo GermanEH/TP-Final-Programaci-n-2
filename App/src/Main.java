@@ -109,27 +109,28 @@ public class Main {
         b15.agregarCandidato(new Candidato("Julián", "Gómez", 41, "73234567", "MAS", "Diputado", "Sindicalista"));
         b15.agregarCandidato(new Candidato("Camila", "Rojas", 34, "74234567", "MAS", "Concejal", "Periodista"));
 
-        List<Boleta> boletas = new ArrayList<>();
-        boletas.add(b1);
-        boletas.add(b2);
-        boletas.add(b3);
-        boletas.add(b4);
-        boletas.add(b5);
-        boletas.add(b6);
-        boletas.add(b7);
-        boletas.add(b8);
-        boletas.add(b9);
-        boletas.add(b10);
-        boletas.add(b11);
-        boletas.add(b12);
-        boletas.add(b13);
-        boletas.add(b14);
-        boletas.add(b15);
+        BoletaUnica boletaUnica = new BoletaUnica(new HashSet<>());
+        boletaUnica.agregar(b1);
+        boletaUnica.agregar(b2);
+        boletaUnica.agregar(b3);
+        boletaUnica.agregar(b4);
+        boletaUnica.agregar(b5);
+        boletaUnica.agregar(b6);
+        boletaUnica.agregar(b7);
+        boletaUnica.agregar(b8);
+        boletaUnica.agregar(b9);
+        boletaUnica.agregar(b10);
+        boletaUnica.agregar(b11);
+        boletaUnica.agregar(b12);
+        boletaUnica.agregar(b13);
+        boletaUnica.agregar(b14);
+        boletaUnica.agregar(b15);
 
         Map<String, String> admins = new HashMap<>();
         admins.put("Mauri", "1234");
         admins.put("German", "4321");
         admins.put("Juan", "1212");
+
         int menu;
         do {
             pausa(scan);
@@ -162,24 +163,24 @@ public class Main {
                         }
 
                         System.out.println("=========================================================================================================");
-                        System.out.println("                           BIENVENIDO VOTANTE: " + votante.getNombre());
+                        System.out.println("                           BIENVENIDO VOTANTE: " + votante.getNombre()) ;
                         pausa(scan);
                         System.out.println("BOLETAS DISPONIBLES PARA VOTAR:");
-                        mostrarBoletas(boletas);
+                        boletaUnica.mostrar();
 
-                        System.out.print("INGRESE EL NÚMERO DE BOLETA PARA VOTAR: ");
-                        int n = scan.nextInt();
+                        System.out.print("INGRESE EL NÚMERO DE LISTA PARA VOTAR: ");
+                        int nLista = scan.nextInt();
                         scan.nextLine();
 
-                        if (n < 1 || n > boletas.size()) {
-                            throw new VotanteException("ERROR: Número de boleta inexistente.");
+                        Voto voto = votante.votar(boletaUnica, nLista);
+
+                        if(voto.getValidez()){
+                            centro.procesarVoto(votante, voto);
+                            System.out.println("VOTO REGISTRADO PARA: " + voto.getBoleta().getNombre());
+
+                        }else {
+                         throw new VotanteException("ERROR: Boleta invalida, voto no registrado.");
                         }
-
-                        Boleta elegida = boletas.get(n - 1);
-                        Voto voto = votante.votar(new BoletaUnica(new HashSet<>(boletas)), elegida.getLista());
-                        centro.procesarVoto(votante, voto);
-
-                        System.out.println("VOTO REGISTRADO PARA: " + elegida.getNombre());
 
                     } catch (VotanteException e) {
                         System.out.println("ERROR:" + e.getMessage());
@@ -290,17 +291,5 @@ public class Main {
     public static void pausa(Scanner scan) {
         System.out.println("PRESIONE ENTER PARA CONTINUAR.");
         scan.nextLine();
-    }
-
-    public static void mostrarBoletas(List<Boleta> boletas) {
-        int i = 1;
-        for (Boleta b : boletas) {
-            System.out.println(i++ + " - " + b);
-            int j = 1;
-            for (Candidato c : b.getCandidatos()) {
-                System.out.println(" " + j++ + " - " + c);
-            }
-            System.out.println();
-        }
     }
 }

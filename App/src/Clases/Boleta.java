@@ -72,7 +72,7 @@ public class Boleta {
 
     @Override
     public String toString() {
-        return "| BOLETA | :  " + nombre + " ="+sigla +"=";
+        return "| BOLETA | :  " + nombre + " ="+sigla +"="+"LISTA "+lista;
     }
 
     public boolean agregarCandidato(Candidato c) {

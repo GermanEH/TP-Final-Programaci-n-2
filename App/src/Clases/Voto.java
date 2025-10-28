@@ -20,7 +20,7 @@ public class Voto {
         this.boleta = boleta;
     }
 
-    public boolean isValidez() {
+    public boolean getValidez() {
         return validez;
     }
 
