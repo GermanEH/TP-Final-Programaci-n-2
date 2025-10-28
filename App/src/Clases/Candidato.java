@@ -54,10 +54,9 @@ public class Candidato extends Persona {
 
     @Override
     public String toString() {
-        return "Candidato{" +
-                "boleta='" + boleta + '\'' +
-                ", puesto='" + puesto + '\'' +
-                ", trabajo='" + trabajo + '\'' +
-                '}';
+        return "CANDIDATO: " + super.toString() +
+                ", boleta: " + boleta +
+                ", puesto: " + puesto +
+                ", trabajo: " + trabajo ;
     }
 }
