@@ -14,7 +14,7 @@ public final class Padron implements Registro<Votante> {
 
     @Override
     public void agregar(Votante v) throws VotanteException {
-        if (v == null){
+        if (v == null || v.getDni().isEmpty()){
             throw new VotanteException("ERROR: NO SE PERMITE AGREGAR VOTANTE NULO.");
         }
         votantes.add(v);
@@ -43,25 +43,28 @@ public final class Padron implements Registro<Votante> {
         return null;
     }
 
-    public static boolean buscarPersona(int numero) {
-        for (Votante votante : votantes) {
-            if (votante.getNumero() == numero) {
-                return true;
+    public Votante buscarPorDniYDniVoto(String dni, int numeroVoto) {
+        for (Votante v : votantes) {
+            if (v.getDni().equals(dni) && v.getNumero() == numeroVoto) {
+                return v;
             }
         }
-
-        return false;
+        return null;
     }
 
+    // (Si querés mantener los métodos viejos)
     public static boolean buscarPersona(String dni) {
-        for (Votante votante : votantes) {
-            if (votante.getDni().equals(dni)) {
-                return true;
-            }
+        for (Votante v : votantes) {
+            if (v.getDni().equals(dni)) return true;
         }
-
         return false;
     }
 
+    public static boolean buscarPersona(int numeroVoto) {
+        for (Votante v : votantes) {
+            if (v.getNumero() == numeroVoto) return true;
+        }
+        return false;
+    }
 
 }

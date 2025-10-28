@@ -14,7 +14,7 @@ public class CentroDeVotacion {
     private Urna urna;
     private HashMap<String,Boleta> resultado;
 
-    public void CentroDeVotacion(){
+    public CentroDeVotacion(){
         this.Fila = new ArrayList<Votante>();
         this.urna = new Urna();
         this.resultado = new HashMap<>();

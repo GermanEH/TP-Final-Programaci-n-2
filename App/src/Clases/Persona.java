@@ -1,6 +1,6 @@
 package Clases;
 
-import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Persona<T> {
     private String nombre;
@@ -48,5 +48,24 @@ public abstract class Persona<T> {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Persona<?> persona)) return false;
+        return edad == persona.edad && Objects.equals(nombre, persona.nombre) && Objects.equals(apellido, persona.apellido) && Objects.equals(dni, persona.dni);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, apellido, edad, dni);
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " " +
+                apellido +
+                ", edad: " + edad +
+                ", dni: " + dni ;
     }
 }
