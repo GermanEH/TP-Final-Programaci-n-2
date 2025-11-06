@@ -14,7 +14,7 @@ public class CentroDeVotacion {
     private Urna urna;
     private HashMap<String,Boleta> resultado;
 
-    public void CentroDeVotacion(){
+    public CentroDeVotacion(){
         this.Fila = new ArrayList<Votante>();
         this.urna = new Urna();
         this.resultado = new HashMap<>();
@@ -60,7 +60,7 @@ public class CentroDeVotacion {
         }
         Boleta ganador = null;
         for(Voto voto:urna.getUrnaVotos()){
-            if(!voto.isValidez()) {
+            if(!voto.getValidez()) {
                 //this.resultado.get("En blanco").aumentarVotos();
             } else {
                 this.resultado.get(voto.getBoleta().getNombre()).aumentarVotos();

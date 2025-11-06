@@ -2,55 +2,63 @@ package Clases;
 
 import Interfaces.Registro;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
+
 public class BoletaUnica implements Registro<Boleta> {
-    Set<Boleta> boletaUnica;
+    Set<Boleta> boletasUnicas;
 
     public BoletaUnica(Set<Boleta> boletaUnica) {
-        this.boletaUnica = boletaUnica;
+        this.boletasUnicas = boletaUnica;
     }
 
-    public Set<Boleta> getBoletaUnica() {
-        return boletaUnica;
+    public Set<Boleta> getBoletasUnicas() {
+        return boletasUnicas;
     }
 
     public void setBoletaUnica(Set<Boleta> boletaUnica) {
-        this.boletaUnica = boletaUnica;
+        this.boletasUnicas = boletaUnica;
     }
 
     @Override
     public String toString() {
         return "Clases.BoletaUnica{" +
-                "boletaUnica=" + boletaUnica +
+                "boletaUnica=" + boletasUnicas +
                 '}';
     }
 
     @Override
     public void agregar(Boleta boleta) {
-        boletaUnica.add(boleta);
+        boletasUnicas.add(boleta);
     }
 
     @Override
     public void eliminar(Boleta boleta) {
-        boletaUnica.remove(boleta);
+        boletasUnicas.remove(boleta);
     }
 
     @Override
     public void mostrar() {
-        if (boletaUnica.isEmpty()) {
+        if (boletasUnicas.isEmpty()) {
             System.out.println("No hay boletas disponibles");
-        } else {
-            System.out.println("----------BOLETAS DISPONIBLES----------");
-
-            int i = 1;
-
-            for (Boleta boleta : boletaUnica) {
-                System.out.println(i + ". " + boleta.toString());
-                i++;
-            }
-            System.out.println("-----------------------------------");
+            return;
         }
 
+        System.out.println("------------------------------BOLETAS DISPONIBLES------------------------------");
+        List<Boleta> listaBoletas = new ArrayList<>(boletasUnicas);
+        listaBoletas.sort(Comparator.comparingInt(Boleta::getLista));
+
+        for (Boleta b : listaBoletas) {
+            System.out.println(b);
+            int j = 1;
+            for (Candidato c : b.getCandidatos()) {
+                System.out.println("   " + j++ + " - " + c);
+            }
+            System.out.println();
+        }
+        System.out.println("--------------------------------------------------------------------------------");
     }
 
     @Override
@@ -59,7 +67,7 @@ public class BoletaUnica implements Registro<Boleta> {
     }
 
     public Boleta buscarPorLista(int lista) {
-        for (Boleta boleta : boletaUnica) {
+        for (Boleta boleta : boletasUnicas) {
             if (boleta.getLista() == lista) {
                 return boleta;
             }

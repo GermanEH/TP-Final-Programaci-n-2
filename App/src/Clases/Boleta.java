@@ -30,6 +30,7 @@ public class Boleta {
     public String getSigla() {
         return sigla;
     }
+
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
@@ -45,6 +46,7 @@ public class Boleta {
     public int getVotos() {
         return votos;
     }
+
     public void setVotos(int votos) {
         this.votos = votos;
     }
@@ -59,30 +61,31 @@ public class Boleta {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Boleta boleta)) return false;
-        return lista == boleta.lista && votos == boleta.votos && Objects.equals(nombre, boleta.nombre) && Objects.equals(sigla, boleta.sigla) && Objects.equals(candidatos, boleta.candidatos);
+        if (this == o) return true;
+        if (!(o instanceof Boleta)) return false;
+        Boleta boleta = (Boleta) o;
+        return lista == boleta.lista;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, sigla, lista, votos, candidatos);
+        return Objects.hash(lista);
     }
 
     @Override
     public String toString() {
-        return "Boleta{" +
-                "nombre='" + nombre + '\'' +
-                ", sigla='" + sigla + '\'' +
-                ", lista=" + lista +
-                ", votos=" + votos +
-                ", Candidatos=" + candidatos +
-                '}';
+        return "| BOLETA | :  " + nombre + " =" + sigla + "=" + "LISTA " + lista;
     }
 
     public boolean agregarCandidato(Candidato c) {
-        if (candidatos.size() > 5 || c == null) {
-            return false;
+        if (candidatos.size() >= 5 || c == null) {
+            return false; // si se pasa de 5 candidatos no lo agrego
         } else {
+            for (Candidato candidato : candidatos) {
+                if(candidato.getDni().equalsIgnoreCase(c.getDni())){
+                    return false; // si existe no lo agrego
+                }
+            }
             return candidatos.add(c);
         }
     }
