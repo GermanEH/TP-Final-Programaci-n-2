@@ -1,5 +1,5 @@
 package Clases;
-import JSONUtiles.JSONUtiles;
+import Clases.JSONUtiles;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import static JSONUtiles.JSONUtiles.grabar;
+import static Clases.JSONUtiles.grabar;
 
 public class GestorDeArchivos {
 
