@@ -164,11 +164,11 @@ public class Main {
                         }
 
                         System.out.println("=========================================================================================================");
-                        System.out.println("                           BIENVENIDO VOTANTE: " + votante.getNombre()) ;
+                        System.out.println("                           BIENVENIDO VOTANTE: " + votante.getNombre());
                         pausa(scan);
 
                         int turno = centro.asignarTurno(votante);
-                        System.out.println("SU TURNO ES : "+ turno);
+                        System.out.println("SU TURNO ES : " + turno);
 
                         System.out.println("BOLETAS DISPONIBLES PARA VOTAR:");
                         boletaUnica.mostrar();
@@ -179,12 +179,12 @@ public class Main {
 
                         Voto voto = votante.votar(boletaUnica, nLista);
 
-                        if(voto.getValidez()){
+                        if (voto.getValidez()) {
                             centro.procesarVoto(votante, voto);
                             System.out.println("VOTO REGISTRADO PARA: " + voto.getBoleta().getNombre());
 
-                        }else {
-                         throw new VotanteException("ERROR: Boleta invalida, voto no registrado.");
+                        } else {
+                            throw new VotanteException("ERROR: Boleta invalida, voto no registrado.");
                         }
 
                     } catch (VotanteException e) {
@@ -202,9 +202,10 @@ public class Main {
                 case 2: {
                     System.out.print("Ingrese su nombre: ");
                     String nombre = scan.nextLine();
-                    System.out.print("Ingrese su constraseña: ");
+                    System.out.print("Ingrese su contraseña: ");
                     String contra = scan.nextLine();
                     Administrador a = new Administrador(nombre, contra);
+
                     if (admins.containsKey(nombre) && admins.get(nombre).equals(contra)) {
                         int menuAdmin;
                         do {
@@ -224,15 +225,9 @@ public class Main {
                             menuAdmin = scan.nextInt();
                             scan.nextLine();
                             switch (menuAdmin) {
-                                case 0: {
-                                    System.out.println("CERRANDO SESION DE ADMINISTRADOR...");
-                                    break;
-                                }
-                                case 1: {
-                                    boletaUnica.mostrar();
-                                    break;
-                                }
-                                case 2: {
+                                case 0 -> System.out.println("CERRANDO SESION DE ADMINISTRADOR...");
+                                case 1 -> boletaUnica.mostrar();
+                                case 2 -> {
                                     System.out.print("Ingrese el nombre de la boleta : ");
                                     String bNombre = scan.nextLine();
                                     System.out.print("Las siglas de la boleta : ");
@@ -241,11 +236,9 @@ public class Main {
                                     int bLista = scan.nextInt();
                                     scan.nextLine();
                                     Boleta b = new Boleta(bNombre, bSiglas, bLista);
-
                                     boletaUnica.agregar(b);
-                                    break;
                                 }
-                                case 3: {
+                                case 3 -> {
                                     System.out.print("Ingrese el numero de lista de la boleta para eliminarla : ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
@@ -256,15 +249,12 @@ public class Main {
                                     } else {
                                         System.out.println("No se encontró la boleta. ");
                                     }
-
-                                    break;
                                 }
-                                case 4: {
+                                case 4 -> {
                                     System.out.print("Ingrese el número de lista de la boleta donde quiere agregar un candidato: ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
                                     Boleta b = boletaUnica.buscarPorLista(nLista);
-
                                     if (b != null) {
                                         System.out.print("Ingrese el nombre del candidato : ");
                                         String cNombre = scan.nextLine();
@@ -286,14 +276,12 @@ public class Main {
                                     } else {
                                         System.out.println("No se encontró la boleta con número de lista " + nLista);
                                     }
-                                    break;
                                 }
-                                case 5: {
+                                case 5 -> {
                                     System.out.print("Ingrese el número de lista de la boleta donde quiere eliminar un candidato: ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
                                     Boleta b = boletaUnica.buscarPorLista(nLista);
-
                                     if (b != null) {
                                         System.out.println("Candidatos disponibles:");
                                         int i = 1;
@@ -301,11 +289,9 @@ public class Main {
                                             System.out.println(i + ". " + c.getNombre() + " " + c.getApellido() + " - " + c.getPuesto());
                                             i++;
                                         }
-
                                         System.out.print("Ingrese el número del candidato a eliminar: ");
                                         int numCandidato = scan.nextInt();
                                         scan.nextLine();
-
                                         if (numCandidato > 0 && numCandidato <= b.getCandidatos().size()) {
                                             Candidato cEliminar = b.getCandidatos().get(numCandidato - 1);
                                             b.eliminarCandidato(cEliminar);
@@ -316,37 +302,29 @@ public class Main {
                                     } else {
                                         System.out.println("No se encontró la boleta con número de lista " + nLista);
                                     }
-                                    break;
                                 }
-                                case 6: {
+                                case 6 -> {
                                     centro.abrirVotacion();
                                     System.out.println("Votación iniciada.");
-                                    break;
                                 }
-                                case 7: {
+                                case 7 -> {
                                     centro.cerrarVotacion();
                                     System.out.println("Votación cerrada.");
-                                    break;
                                 }
-                                default: {
-                                    System.out.println("ERROR: OPCION INVALIDA.");
-                                }
-                            } while (menuAdmin != 0);
-                        } else {
-                            System.out.println("ERROR: Nombre o contraseña incorrectas.");
-                        }
-                    }
-                    default: {
-                        System.out.println("ERROR: OPCION INVALIDA.");
+                                default -> System.out.println("ERROR: OPCION INVALIDA.");
+                            }
+                        } while (menuAdmin != 0);
+                    } else {
+                        System.out.println("ERROR: Nombre o contraseña incorrectas.");
                     }
                     break;
                 }
-            } while (menu != 0);
-
-        } catch(VotanteException e){
-            System.out.println(e.getMessage());
-        }
-
+                default: {
+                    System.out.println("ERROR: OPCION INVALIDA.");
+                }
+                break;
+            }
+        } while (menu != 0);
     }
 
     public static void pausa(Scanner scan) {
