@@ -331,18 +331,22 @@ public class Main {
                                 default: {
                                     System.out.println("ERROR: OPCION INVALIDA.");
                                 }
-                            }
-                        } while (menuAdmin != 0);
-                    } else {
-                        System.out.println("ERROR: Nombre o contraseña incorrectas.");
+                            } while (menuAdmin != 0);
+                        } else {
+                            System.out.println("ERROR: Nombre o contraseña incorrectas.");
+                        }
+                    }
+                    default: {
+                        System.out.println("ERROR: OPCION INVALIDA.");
                     }
                     break;
                 }
-                default: {
-                    System.out.println("ERROR: OPCION INVALIDA.");
-                }
-            }
-        } while (menu != 0);
+            } while (menu != 0);
+
+        } catch(VotanteException e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public static void pausa(Scanner scan) {
