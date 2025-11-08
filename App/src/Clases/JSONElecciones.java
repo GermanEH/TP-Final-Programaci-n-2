@@ -46,11 +46,11 @@ public class JSONElecciones {
     }
 
 
-
-    public static void guardarVotantes(List<Votante> votantes){
+    /// METODO PARA SERIALIZAR VOTANTES
+    public static void guardarVotantes(List<Votante> votantes) {
         JSONArray jVotantes = new JSONArray();
 
-        for (Votante v : votantes){
+        for (Votante v : votantes) {
             JSONObject jV = new JSONObject();
             try {
                 jV.put("nombre", v.getNombre());
@@ -64,10 +64,47 @@ public class JSONElecciones {
                 JSONObject obj = new JSONObject();
                 obj.put("votantes", jVotantes);
 
-                JSONUtiles.grabar(JVOTANTES,jVotantes);
+                JSONUtiles.grabar(JVOTANTES, jVotantes);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+
+    ///  METODO PARA DESCERIALIZAR CSV
+    public static void leerCsvJson() {
+        JSONTokener tokener = JSONUtiles.leer(CSVJSON);
+        if (tokener == null) {
+            System.out.println("ERROR: No existe o nulo");
+            return;
+        }
+
+        JSONArray jArray = null;
+        try {
+            jArray = new JSONArray(tokener);
+
+            List<Votante> votantes = new ArrayList<>();
+
+            for (int i = 0; i < jArray.length(); i++) {
+                JSONObject jV = jArray.getJSONObject(i);
+
+                Votante v = new Votante(
+                        jV.getString("nombre"),
+                        jV.getString("apellido"),
+                        jV.getInt("edad"),
+                        jV.getString("dni"),
+                        jV.getInt("numero"),
+                        jV.getBoolean("voto")
+                );
+                votantes.add(v);
+            }
+
+            guardarVotantes(votantes);
+            System.out.println("SE IMPORTARON LOS VOTANTES DEL csvjson.json");
+
+        } catch (JSONException e) {
+            System.out.println("ERROR: No se pudo leer el archivo csvjson.json");
         }
     }
 
