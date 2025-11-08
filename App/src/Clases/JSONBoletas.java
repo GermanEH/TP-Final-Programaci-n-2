@@ -40,31 +40,22 @@ public class JSONBoletas {
                 b.setVotos(votos);
 
                 if (jB.has("candidatos")) {
-                    JSONArray jCandidatos = jB.getJSONArray("candidatos");
-                    for (int j = 0; j < jCandidatos.length(); j++) {
-                        JSONObject jC = jCandidatos.getJSONObject(j);
-
-                        Candidato c = new Candidato(
-                                jC.getString("nombre"),
-                                jC.getString("apellido"),
-                                jC.getInt("edad"),
-                                jC.getString("dni"),
-                                jC.getString("boleta"),
-                                jC.getString("puesto"),
-                                jC.getString("trabajo")
-                        );
+                    List<Candidato> candidatos = deserializarCandidatos(jB.getJSONArray("candidatos"));
+                    for (Candidato c : candidatos) {
                         b.agregarCandidato(c);
                     }
                 }
+
                 boletas.add(b);
             }
         } catch (JSONException e) {
             System.out.println("ERROR al leer boletas: " + e.getMessage());
         }
+
         return boletas;
     }
 
-    /// MÉTODO PARA SERIALIZAR LAS BOLETAS
+    /// MÉTODO PARA SERIALIZAR BOLETAS
     public static void guardarBoletas(List<Boleta> boletas) {
         JSONArray jBoletas = new JSONArray();
 
@@ -76,20 +67,7 @@ public class JSONBoletas {
                 jB.put("lista", b.getLista());
                 jB.put("votos", b.getVotos());
 
-                JSONArray jCandidatos = new JSONArray();
-                for (Candidato c : b.getCandidatos()) {
-                    JSONObject jC = new JSONObject();
-                    jC.put("nombre", c.getNombre());
-                    jC.put("apellido", c.getApellido());
-                    jC.put("edad", c.getEdad());
-                    jC.put("dni", c.getDni());
-                    jC.put("boleta", c.getBoleta());
-                    jC.put("puesto", c.getPuesto());
-                    jC.put("trabajo", c.getTrabajo());
-                    jCandidatos.put(jC);
-                }
-
-                jB.put("candidatos", jCandidatos);
+                jB.put("candidatos", serializarCandidatos(b.getCandidatos()));
                 jBoletas.put(jB);
 
             } catch (JSONException e) {
@@ -107,4 +85,47 @@ public class JSONBoletas {
         JSONUtiles.grabar(JBOLETAS, obj);
     }
 
+    private static List<Candidato> deserializarCandidatos(JSONArray jCandidatos) throws JSONException {
+        List<Candidato> candidatos = new ArrayList<>();
+
+        for (int j = 0; j < jCandidatos.length(); j++) {
+            JSONObject jC = jCandidatos.getJSONObject(j);
+
+            Candidato c = new Candidato(
+                    jC.getString("nombre"),
+                    jC.getString("apellido"),
+                    jC.getInt("edad"),
+                    jC.getString("dni"),
+                    jC.getString("boleta"),
+                    jC.getString("puesto"),
+                    jC.getString("trabajo")
+            );
+
+            candidatos.add(c);
+        }
+
+        return candidatos;
+    }
+
+    private static JSONArray serializarCandidatos(List<Candidato> candidatos) {
+        JSONArray jCandidatos = new JSONArray();
+
+        for (Candidato c : candidatos) {
+            JSONObject jC = new JSONObject();
+            try {
+                jC.put("nombre", c.getNombre());
+                jC.put("apellido", c.getApellido());
+                jC.put("edad", c.getEdad());
+                jC.put("dni", c.getDni());
+                jC.put("boleta", c.getBoleta());
+                jC.put("puesto", c.getPuesto());
+                jC.put("trabajo", c.getTrabajo());
+                jCandidatos.put(jC);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return jCandidatos;
+    }
 }
