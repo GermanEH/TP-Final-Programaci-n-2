@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JSONElecciones {
-    private static final String JVOTANTES = "votantes.json";
-    private static final String CSVJSON = "csvjson.json";
+    private static final String JVOTANTES = "App/archivos/votantes.json";
+    private static final String CSVJSON = "App/archivos/csvjson.json";
 
     /// METODO PARA DESCERIALIZAR VOTANTES
     public static List<Votante> leerVotantes() {

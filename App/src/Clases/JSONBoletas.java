@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JSONBoletas {
-    private static final String JBOLETAS = "boletas.json";
+    private static final String JBOLETAS = "App/archivos/boletas.json";
 
     /// MÉTODO PARA DESERIALIZAR BOLETAS
     public static List<Boleta> leerBoletas() {

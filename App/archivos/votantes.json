@@ -5,7 +5,8 @@
       "apellido": "Tognocchi",
       "edad": 21,
       "dni": "45923395",
-      "nroMesa": 13
+      "numero": 13,
+      "voto": false
     }
   ]
 }

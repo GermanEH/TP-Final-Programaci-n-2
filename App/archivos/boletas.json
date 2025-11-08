@@ -1,0 +1,213 @@
+{
+  "boletas": [
+    {
+      "nombre": "ALIANZA LA LIBERTAD AVANZA",
+      "sigla": "ALLA",
+      "lista": 503,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Javier", "apellido": "Milei", "edad": 53, "dni": "20234567", "boleta": "ALIANZA LA LIBERTAD AVANZA", "puesto": "Presidente", "trabajo": "Economista"},
+        {"nombre": "Victoria", "apellido": "Villarruel", "edad": 48, "dni": "21234567", "boleta": "ALIANZA LA LIBERTAD AVANZA", "puesto": "Vicepresidente", "trabajo": "Abogada"},
+        {"nombre": "Ramiro", "apellido": "Marra", "edad": 41, "dni": "22234567", "boleta": "ALIANZA LA LIBERTAD AVANZA", "puesto": "Senador", "trabajo": "Financista"},
+        {"nombre": "Carlos", "apellido": "Kikuchi", "edad": 58, "dni": "23234567", "boleta": "ALIANZA LA LIBERTAD AVANZA", "puesto": "Diputado", "trabajo": "Periodista"},
+        {"nombre": "Lilia", "apellido": "Lemoine", "edad": 43, "dni": "24234567", "boleta": "ALIANZA LA LIBERTAD AVANZA", "puesto": "Concejal", "trabajo": "Actriz"}
+      ]
+    },
+    {
+      "nombre": "PARTIDO NUEVO BUENOS AIRES",
+      "sigla": "PNBA",
+      "lista": 221,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Esteban", "apellido": "Gómez", "edad": 50, "dni": "25234567", "boleta": "PARTIDO NUEVO BUENOS AIRES", "puesto": "Presidente", "trabajo": "Abogado"},
+        {"nombre": "Juliana", "apellido": "Morales", "edad": 42, "dni": "26234567", "boleta": "PARTIDO NUEVO BUENOS AIRES", "puesto": "Vicepresidente", "trabajo": "Economista"},
+        {"nombre": "Rodrigo", "apellido": "Pérez", "edad": 47, "dni": "27234567", "boleta": "PARTIDO NUEVO BUENOS AIRES", "puesto": "Senador", "trabajo": "Ingeniero"},
+        {"nombre": "Martina", "apellido": "López", "edad": 37, "dni": "28234567", "boleta": "PARTIDO NUEVO BUENOS AIRES", "puesto": "Diputada", "trabajo": "Docente"},
+        {"nombre": "Lucas", "apellido": "Fernández", "edad": 39, "dni": "29234567", "boleta": "PARTIDO NUEVO BUENOS AIRES", "puesto": "Concejal", "trabajo": "Arquitecto"}
+      ]
+    },
+    {
+      "nombre": "LIBER AR",
+      "sigla": "LA",
+      "lista": 318,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Luciano", "apellido": "Martínez", "edad": 45, "dni": "30234567", "boleta": "LIBER AR", "puesto": "Presidente", "trabajo": "Contador"},
+        {"nombre": "Romina", "apellido": "Suárez", "edad": 38, "dni": "31234567", "boleta": "LIBER AR", "puesto": "Vicepresidente", "trabajo": "Economista"},
+        {"nombre": "Marcos", "apellido": "Díaz", "edad": 52, "dni": "32234567", "boleta": "LIBER AR", "puesto": "Senador", "trabajo": "Abogado"},
+        {"nombre": "Carla", "apellido": "Mendoza", "edad": 40, "dni": "33234567", "boleta": "LIBER AR", "puesto": "Diputada", "trabajo": "Administradora"},
+        {"nombre": "Gustavo", "apellido": "Benítez", "edad": 48, "dni": "34234567", "boleta": "LIBER AR", "puesto": "Concejal", "trabajo": "Empresario"}
+      ]
+    },
+    {
+      "nombre": "FRENTE DE IZQUIERDA UNIDAD",
+      "sigla": "FDIU",
+      "lista": 506,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Myriam", "apellido": "Bregman", "edad": 51, "dni": "35234567", "boleta": "FRENTE DE IZQUIERDA UNIDAD", "puesto": "Presidente", "trabajo": "Abogada"},
+        {"nombre": "Nicolás", "apellido": "Del Caño", "edad": 44, "dni": "36234567", "boleta": "FRENTE DE IZQUIERDA UNIDAD", "puesto": "Vicepresidente", "trabajo": "Sociólogo"},
+        {"nombre": "Romina", "apellido": "Del Plá", "edad": 50, "dni": "37234567", "boleta": "FRENTE DE IZQUIERDA UNIDAD", "puesto": "Senadora", "trabajo": "Docente"},
+        {"nombre": "Christian", "apellido": "Castillo", "edad": 49, "dni": "38234567", "boleta": "FRENTE DE IZQUIERDA UNIDAD", "puesto": "Diputado", "trabajo": "Profesor"},
+        {"nombre": "Alejandro", "apellido": "Bodart", "edad": 59, "dni": "39234567", "boleta": "FRENTE DE IZQUIERDA UNIDAD", "puesto": "Concejal", "trabajo": "Politólogo"}
+      ]
+    },
+    {
+      "nombre": "FRENTE PATRIOTA FEDERAL",
+      "sigla": "FPF",
+      "lista": 95,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "César", "apellido": "Baeza", "edad": 62, "dni": "40234567", "boleta": "FRENTE PATRIOTA FEDERAL", "puesto": "Presidente", "trabajo": "Abogado"},
+        {"nombre": "Graciela", "apellido": "Romero", "edad": 55, "dni": "41234567", "boleta": "FRENTE PATRIOTA FEDERAL", "puesto": "Vicepresidente", "trabajo": "Contadora"},
+        {"nombre": "Daniel", "apellido": "Quiroga", "edad": 49, "dni": "42234567", "boleta": "FRENTE PATRIOTA FEDERAL", "puesto": "Senador", "trabajo": "Comerciante"},
+        {"nombre": "Silvia", "apellido": "González", "edad": 46, "dni": "43234567", "boleta": "FRENTE PATRIOTA FEDERAL", "puesto": "Diputada", "trabajo": "Docente"},
+        {"nombre": "Oscar", "apellido": "Luna", "edad": 58, "dni": "44234567", "boleta": "FRENTE PATRIOTA FEDERAL", "puesto": "Concejal", "trabajo": "Abogado"}
+      ]
+    },
+    {
+      "nombre": "UNION LIBERAL",
+      "sigla": "UL",
+      "lista": 153,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Federico", "apellido": "Romero", "edad": 45, "dni": "25234567", "boleta": "UNION LIBERAL", "puesto": "Presidente", "trabajo": "Abogado"},
+        {"nombre": "Claudia", "apellido": "Santos", "edad": 39, "dni": "26234567", "boleta": "UNION LIBERAL", "puesto": "Vicepresidente", "trabajo": "Economista"},
+        {"nombre": "Ignacio", "apellido": "Campos", "edad": 51, "dni": "27234567", "boleta": "UNION LIBERAL", "puesto": "Senador", "trabajo": "Ingeniero"},
+        {"nombre": "Verónica", "apellido": "Paz", "edad": 36, "dni": "28234567", "boleta": "UNION LIBERAL", "puesto": "Diputada", "trabajo": "Contadora"},
+        {"nombre": "Ricardo", "apellido": "Molina", "edad": 42, "dni": "29234567", "boleta": "UNION LIBERAL", "puesto": "Concejal", "trabajo": "Docente"}
+      ]
+    },
+    {
+      "nombre": "ALIANZA FUERZA PATRIA",
+      "sigla": "AFP",
+      "lista": 507,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Eduardo", "apellido": "Ramírez", "edad": 56, "dni": "30234567", "boleta": "ALIANZA FUERZA PATRIA", "puesto": "Presidente", "trabajo": "Militar Retirado"},
+        {"nombre": "Natalia", "apellido": "Ibarra", "edad": 40, "dni": "31234567", "boleta": "ALIANZA FUERZA PATRIA", "puesto": "Vicepresidente", "trabajo": "Abogada"},
+        {"nombre": "Fernando", "apellido": "Correa", "edad": 48, "dni": "32234567", "boleta": "ALIANZA FUERZA PATRIA", "puesto": "Senador", "trabajo": "Administrador"},
+        {"nombre": "Julieta", "apellido": "Vega", "edad": 33, "dni": "33234567", "boleta": "ALIANZA FUERZA PATRIA", "puesto": "Diputada", "trabajo": "Comunicadora"},
+        {"nombre": "Marcelo", "apellido": "Suárez", "edad": 46, "dni": "34234567", "boleta": "ALIANZA FUERZA PATRIA", "puesto": "Concejal", "trabajo": "Empresario"}
+      ]
+    },
+    {
+      "nombre": "COALICION CIVICA",
+      "sigla": "CC",
+      "lista": 47,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Elisa", "apellido": "Carrió", "edad": 67, "dni": "35234567", "boleta": "COALICION CIVICA", "puesto": "Presidente", "trabajo": "Abogada"},
+        {"nombre": "Maximiliano", "apellido": "Ferraro", "edad": 43, "dni": "36234567", "boleta": "COALICION CIVICA", "puesto": "Vicepresidente", "trabajo": "Politólogo"},
+        {"nombre": "Mariana", "apellido": "Zuvic", "edad": 47, "dni": "37234567", "boleta": "COALICION CIVICA", "puesto": "Senadora", "trabajo": "Comunicadora"},
+        {"nombre": "Juan", "apellido": "López", "edad": 50, "dni": "38234567", "boleta": "COALICION CIVICA", "puesto": "Diputado", "trabajo": "Abogado"},
+        {"nombre": "Mónica", "apellido": "Frade", "edad": 55, "dni": "39234567", "boleta": "COALICION CIVICA", "puesto": "Diputada", "trabajo": "Contadora"}
+      ]
+    },
+    {
+      "nombre": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR",
+      "sigla": "MPSYCPS",
+      "lista": 305,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Fernando", "apellido": "Solanas", "edad": 84, "dni": "40234567", "boleta": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR", "puesto": "Presidente", "trabajo": "Cineasta"},
+        {"nombre": "Gabriela", "apellido": "Massuh", "edad": 60, "dni": "41234567", "boleta": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR", "puesto": "Vicepresidente", "trabajo": "Escritora"},
+        {"nombre": "Eduardo", "apellido": "Macaluse", "edad": 62, "dni": "42234567", "boleta": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR", "puesto": "Senador", "trabajo": "Profesor"},
+        {"nombre": "Ana", "apellido": "Zabaloy", "edad": 49, "dni": "43234567", "boleta": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR", "puesto": "Diputada", "trabajo": "Docente"},
+        {"nombre": "Carlos", "apellido": "Raimundi", "edad": 65, "dni": "44234567", "boleta": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR", "puesto": "Concejal", "trabajo": "Abogado"}
+      ]
+    },
+    {
+      "nombre": "PROPUESTA FEDERAL PARA EL CAMBIO",
+      "sigla": "PFPEC",
+      "lista": 299,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Mauricio", "apellido": "Macri", "edad": 66, "dni": "45234567", "boleta": "PROPUESTA FEDERAL PARA EL CAMBIO", "puesto": "Presidente", "trabajo": "Ingeniero"},
+        {"nombre": "Patricia", "apellido": "Bullrich", "edad": 68, "dni": "46234567", "boleta": "PROPUESTA FEDERAL PARA EL CAMBIO", "puesto": "Vicepresidente", "trabajo": "Politóloga"},
+        {"nombre": "Horacio", "apellido": "Larreta", "edad": 59, "dni": "47234567", "boleta": "PROPUESTA FEDERAL PARA EL CAMBIO", "puesto": "Senador", "trabajo": "Economista"},
+        {"nombre": "María", "apellido": "Vidal", "edad": 50, "dni": "48234567", "boleta": "PROPUESTA FEDERAL PARA EL CAMBIO", "puesto": "Diputada", "trabajo": "Socióloga"},
+        {"nombre": "Diego", "apellido": "Santilli", "edad": 54, "dni": "49234567", "boleta": "PROPUESTA FEDERAL PARA EL CAMBIO", "puesto": "Concejal", "trabajo": "Administrador"}
+      ]
+    },
+    {
+      "nombre": "ALIANZA PROVINCIAS UNIDAS",
+      "sigla": "APU",
+      "lista": 508,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Gustavo", "apellido": "Valdés", "edad": 55, "dni": "50234567", "boleta": "ALIANZA PROVINCIAS UNIDAS", "puesto": "Presidente", "trabajo": "Abogado"},
+        {"nombre": "Rodolfo", "apellido": "Suárez", "edad": 60, "dni": "51234567", "boleta": "ALIANZA PROVINCIAS UNIDAS", "puesto": "Vicepresidente", "trabajo": "Contador"},
+        {"nombre": "Gerardo", "apellido": "Morales", "edad": 64, "dni": "52234567", "boleta": "ALIANZA PROVINCIAS UNIDAS", "puesto": "Senador", "trabajo": "Abogado"},
+        {"nombre": "Omar", "apellido": "Perotti", "edad": 63, "dni": "53234567", "boleta": "ALIANZA PROVINCIAS UNIDAS", "puesto": "Diputado", "trabajo": "Administrador"},
+        {"nombre": "Raúl", "apellido": "Jalil", "edad": 58, "dni": "54234567", "boleta": "ALIANZA PROVINCIAS UNIDAS", "puesto": "Concejal", "trabajo": "Economista"}
+      ]
+    },
+    {
+      "nombre": "ALIANZA POTENCIA",
+      "sigla": "AP",
+      "lista": 504,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Sergio", "apellido": "Massa", "edad": 53, "dni": "55234567", "boleta": "ALIANZA POTENCIA", "puesto": "Presidente", "trabajo": "Abogado"},
+        {"nombre": "Agustín", "apellido": "Rossi", "edad": 64, "dni": "56234567", "boleta": "ALIANZA POTENCIA", "puesto": "Vicepresidente", "trabajo": "Ingeniero"},
+        {"nombre": "Wado", "apellido": "De Pedro", "edad": 51, "dni": "57234567", "boleta": "ALIANZA POTENCIA", "puesto": "Senador", "trabajo": "Abogado"},
+        {"nombre": "Axel", "apellido": "Kicillof", "edad": 53, "dni": "58234567", "boleta": "ALIANZA POTENCIA", "puesto": "Diputado", "trabajo": "Economista"},
+        {"nombre": "Malena", "apellido": "Galmarini", "edad": 48, "dni": "59234567", "boleta": "ALIANZA POTENCIA", "puesto": "Concejal", "trabajo": "Politóloga"}
+      ]
+    },
+    {
+      "nombre": "FRENTE FEDERAL RENOVADOR",
+      "sigla": "FFR",
+      "lista": 66,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Juan", "apellido": "Pérez", "edad": 54, "dni": "60234567", "boleta": "FRENTE FEDERAL RENOVADOR", "puesto": "Presidente", "trabajo": "Abogado"},
+        {"nombre": "Laura", "apellido": "Martínez", "edad": 46, "dni": "61234567", "boleta": "FRENTE FEDERAL RENOVADOR", "puesto": "Vicepresidente", "trabajo": "Economista"},
+        {"nombre": "Santiago", "apellido": "Ríos", "edad": 49, "dni": "62234567", "boleta": "FRENTE FEDERAL RENOVADOR", "puesto": "Senador", "trabajo": "Ingeniero"},
+        {"nombre": "Paula", "apellido": "Ortiz", "edad": 39, "dni": "63234567", "boleta": "FRENTE FEDERAL RENOVADOR", "puesto": "Diputada", "trabajo": "Contadora"},
+        {"nombre": "Ricardo", "apellido": "Silva", "edad": 44, "dni": "64234567", "boleta": "FRENTE FEDERAL RENOVADOR", "puesto": "Concejal", "trabajo": "Docente"}
+      ]
+    },
+    {
+      "nombre": "MOVIMIENTO HUMANISTA NACIONAL",
+      "sigla": "MHN",
+      "lista": 307,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Sofía", "apellido": "Acosta", "edad": 41, "dni": "65234567", "boleta": "MOVIMIENTO HUMANISTA NACIONAL", "puesto": "Presidente", "trabajo": "Psicóloga"},
+        {"nombre": "Matías", "apellido": "Vera", "edad": 45, "dni": "66234567", "boleta": "MOVIMIENTO HUMANISTA NACIONAL", "puesto": "Vicepresidente", "trabajo": "Sociólogo"},
+        {"nombre": "Claudia", "apellido": "Benítez", "edad": 50, "dni": "67234567", "boleta": "MOVIMIENTO HUMANISTA NACIONAL", "puesto": "Senadora", "trabajo": "Docente"},
+        {"nombre": "Tomás", "apellido": "Herrera", "edad": 36, "dni": "68234567", "boleta": "MOVIMIENTO HUMANISTA NACIONAL", "puesto": "Diputado", "trabajo": "Abogado"},
+        {"nombre": "Lorena", "apellido": "Paz", "edad": 39, "dni": "69234567", "boleta": "MOVIMIENTO HUMANISTA NACIONAL", "puesto": "Concejal", "trabajo": "Trabajadora Social"}
+      ]
+    },
+    {
+      "nombre": "PARTIDO VERDE ARGENTINO",
+      "sigla": "PVA",
+      "lista": 123,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Juan", "apellido": "Campos", "edad": 52, "dni": "70234567", "boleta": "PARTIDO VERDE ARGENTINO", "puesto": "Presidente", "trabajo": "Biólogo"},
+        {"nombre": "Lucía", "apellido": "Morales", "edad": 43, "dni": "71234567", "boleta": "PARTIDO VERDE ARGENTINO", "puesto": "Vicepresidente", "trabajo": "Ambientalista"},
+        {"nombre": "Carlos", "apellido": "Pereyra", "edad": 48, "dni": "72234567", "boleta": "PARTIDO VERDE ARGENTINO", "puesto": "Senador", "trabajo": "Ingeniero Agrónomo"},
+        {"nombre": "Juliana", "apellido": "Sosa", "edad": 37, "dni": "73234567", "boleta": "PARTIDO VERDE ARGENTINO", "puesto": "Diputada", "trabajo": "Docente"},
+        {"nombre": "Miguel", "apellido": "Vega", "edad": 41, "dni": "74234567", "boleta": "PARTIDO VERDE ARGENTINO", "puesto": "Concejal", "trabajo": "Agricultor"}
+      ]
+    },
+    {
+      "nombre": "ALIANZA FUTURO ARGENTINO",
+      "sigla": "AFA",
+      "lista": 509,
+      "votos": 0,
+      "candidatos": [
+        {"nombre": "Emilia", "apellido": "Rojas", "edad": 38, "dni": "75234567", "boleta": "ALIANZA FUTURO ARGENTINO", "puesto": "Presidenta", "trabajo": "Economista"},
+        {"nombre": "Andrés", "apellido": "Soria", "edad": 47, "dni": "76234567", "boleta": "ALIANZA FUTURO ARGENTINO", "puesto": "Vicepresidente", "trabajo": "Administrador"},
+        {"nombre": "Luciano", "apellido": "Gómez", "edad": 44, "dni": "77234567", "boleta": "ALIANZA FUTURO ARGENTINO", "puesto": "Senador", "trabajo": "Abogado"},
+        {"nombre": "Marina", "apellido": "Paredes", "edad": 35, "dni": "78234567", "boleta": "ALIANZA FUTURO ARGENTINO", "puesto": "Diputada", "trabajo": "Comunicadora"},
+        {"nombre": "Pablo", "apellido": "Cruz", "edad": 40, "dni": "79234567", "boleta": "ALIANZA FUTURO ARGENTINO", "puesto": "Concejal", "trabajo": "Ingeniero"}
+      ]
+    }
+  ]
+}
+

@@ -1,5 +1,6 @@
 import Clases.*;
 import Excepciones.VotanteException;
+import org.json.JSONTokener;
 
 import java.util.*;
 
@@ -182,14 +183,13 @@ public class Main {
                         int nLista = scan.nextInt();
                         scan.nextLine();
 
-                        Voto voto = votante.votar(boletaUnica, nLista);
+                        Voto voto = new Voto(nLista, true);
 
-                        if (voto.getValidez()) {
+                        if (voto.isValidez()) {
                             centro.procesarVoto(votante, voto);
-                            System.out.println("VOTO REGISTRADO PARA: " + voto.getBoleta().getNombre());
-
+                            System.out.println("VOTO REGISTRADO PARA LA LISTA N°: " + voto.getNumeroLista());
                         } else {
-                            throw new VotanteException("ERROR: Boleta invalida, voto no registrado.");
+                            throw new VotanteException("ERROR: Boleta inválida, voto no registrado.");
                         }
 
                     } catch (VotanteException e) {
