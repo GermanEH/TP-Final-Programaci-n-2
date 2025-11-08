@@ -49,9 +49,9 @@ public class JSONBoletas {
                                 jC.getString("apellido"),
                                 jC.getInt("edad"),
                                 jC.getString("dni"),
-                                jC.getString("partido"),
-                                jC.getString("cargo"),
-                                jC.getString("profesion")
+                                jC.getString("boleta"),
+                                jC.getString("puesto"),
+                                jC.getString("trabajo")
                         );
                         b.agregarCandidato(c);
                     }
@@ -64,5 +64,47 @@ public class JSONBoletas {
         return boletas;
     }
 
+    /// MÉTODO PARA SERIALIZAR LAS BOLETAS
+    public static void guardarBoletas(List<Boleta> boletas) {
+        JSONArray jBoletas = new JSONArray();
+
+        for (Boleta b : boletas) {
+            JSONObject jB = new JSONObject();
+            try {
+                jB.put("nombre", b.getNombre());
+                jB.put("sigla", b.getSigla());
+                jB.put("lista", b.getLista());
+                jB.put("votos", b.getVotos());
+
+                JSONArray jCandidatos = new JSONArray();
+                for (Candidato c : b.getCandidatos()) {
+                    JSONObject jC = new JSONObject();
+                    jC.put("nombre", c.getNombre());
+                    jC.put("apellido", c.getApellido());
+                    jC.put("edad", c.getEdad());
+                    jC.put("dni", c.getDni());
+                    jC.put("boleta", c.getBoleta());
+                    jC.put("puesto", c.getPuesto());
+                    jC.put("trabajo", c.getTrabajo());
+                    jCandidatos.put(jC);
+                }
+
+                jB.put("candidatos", jCandidatos);
+                jBoletas.put(jB);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("boletas", jBoletas);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JSONUtiles.grabar(JBOLETAS, obj);
+    }
 
 }
