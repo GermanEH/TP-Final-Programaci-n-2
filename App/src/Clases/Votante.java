@@ -15,6 +15,12 @@ public class Votante extends Persona {
         this.voto = false;
     }
 
+    public Votante(String nombre, String apellido, int edad, String dni, int numero, boolean voto) {
+        super(nombre, apellido, edad, dni);
+        this.numero = numero;
+        this.voto = voto;
+    }
+
     public Votante(int numero) {
         this.numero = numero;
     }
