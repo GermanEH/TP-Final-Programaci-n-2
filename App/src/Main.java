@@ -12,6 +12,7 @@ public class Main {
 
         List<Votante> votantes = gestor.leerVotantes();
         List<Boleta> boletas = gestor.leerBoletas();
+        centro.cargarBoletas(boletas);
 
         Votante v1 = new Votante("Mauricio", "Tognocchi", 21, "45923395", 13);
 
