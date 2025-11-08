@@ -35,19 +35,22 @@ public class CentroDeVotacion {
     }
 
     public int asignarTurno(Votante votante) throws VotanteException {
-        if (esVotacionAbierta && Padron.buscarPersona(votante.getNumero()) && !votante.getVoto()) {
-            return ++turno;
-        } else if (!esVotacionAbierta) {
+        if (!esVotacionAbierta) {
             throw new VotanteException("La votación no está abierta.");
-        } else if (!Padron.buscarPersona(votante.getDni())) {
-            throw new VotanteException("No se encontró el dni en el padrón de votantes.");
-        } else if (votante.getVoto()) {
+        }
+        if (!Padron.buscarPersona(votante.getDni())) {
+            throw new VotanteException("No se encontró el votante en el padrón.");
+        }
+        if (votante.getVoto()) {
             throw new VotanteException("Usted ya ha votado.");
         }
-        return 0;
+        return ++turno;
     }
 
-    public void procesarVoto(Votante votante, Voto voto) {
+    public void procesarVoto(Votante votante, Voto voto) throws VotanteException{
+        if(!esVotacionAbierta){
+            throw new VotanteException("ERROR: No se puede procesar el voto");
+        }
         urna.agregar(voto);
         votante.setVoto(true);
     }
@@ -55,6 +58,10 @@ public class CentroDeVotacion {
     public Boleta contarVotos() throws VotanteException {
         if (esVotacionAbierta) {
             throw new VotanteException("La votación todavía está abierta. Primero debe cerrarse.");
+        }
+
+        if(urna.getUrnaVotos().isEmpty()){
+            throw new VotanteException("ERROR: NO HAY VOTOS EN LA URNA.");
         }
 
         Boleta ganador = null;
@@ -75,6 +82,7 @@ public class CentroDeVotacion {
             }
         }
 
+        System.out.println("GANADOR: "+ganador.getLista() +"("+ ganador.getNombre() + ")");
         return ganador;
     }
 }

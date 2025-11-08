@@ -1,18 +1,6 @@
 package Clases;
 
-import Clases.JSONUtiles;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
-
-import static Clases.JSONUtiles.grabar;
 
 public class GestorDeArchivos {
 
@@ -26,44 +14,26 @@ public class GestorDeArchivos {
         return JSONElecciones.leerVotantes();
     }
 
-//    public void removerVotante(Votante votante){
-//        try{
-//            FileWriter file = new FileWriter("votantes.json");
-//            file.write(votante.toString());
-//            file.flush();
-//            file.close();
-//        }catch(IOException e){
-//            e.printStackTrace();
-//        }
-//    }
+    public void eliminarVotante(Votante votante) {
+        List<Votante> votantes = JSONElecciones.leerVotantes();
+        votantes.removeIf(v -> v.getDni().equals(votante.getDni()));
+        JSONElecciones.guardarVotantes(votantes);
+    }
 
     public void agregarBoleta(Boleta boleta) {
-        try {
-            FileWriter file = new FileWriter("boletas.json");
-            file.write(boleta.toString());
-            file.flush();
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        List<Boleta> boletas = JSONBoletas.leerBoletas();
+        boletas.add(boleta);
+        JSONBoletas.guardarBoletas(boletas);
     }
 
-    public void leerBoletas() {
-        try {
-            FileReader file = new FileReader("boletas.json");
-            file.read();
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public List<Boleta> leerBoletas() {
+        return JSONBoletas.leerBoletas();
     }
 
-//    public void removerBoleta(Boleta boleta){
-//        try{
-//            FileWriter file = new FileWriter("boletas.json");
-//        }catch(IOException e){
-//            e.printStackTrace();
-//        }
-//    }
+    public void eliminarBoleta(Boleta boleta) {
+        List<Boleta> boletas = JSONBoletas.leerBoletas();
+        boletas.removeIf(b -> b.getLista() == boleta.getLista());
+        JSONBoletas.guardarBoletas(boletas);
+    }
 
 }
