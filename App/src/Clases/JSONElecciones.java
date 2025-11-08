@@ -19,10 +19,16 @@ public class JSONElecciones {
         try {
             JSONTokener tokener = JSONUtiles.leer(JVOTANTES);
             if (tokener == null) {
+                System.out.println("ERROR: NO SE ENCONTRO EL ARCHIVO VOTANTES.");
                 return votantes;
             }
 
             JSONObject obj = new JSONObject(tokener);
+
+            if(!obj.has("votantes")) { // si no tiene una clave "votantes" retorno
+                return votantes;
+            }
+
             JSONArray jVotantes = obj.getJSONArray("votantes");
 
             for (int i = 0; i < jVotantes.length(); i++) {
@@ -60,15 +66,19 @@ public class JSONElecciones {
                 jV.put("numero", v.getNumero());
                 jV.put("voto", v.getVoto());
                 jVotantes.put(jV);
-
-                JSONObject obj = new JSONObject();
-                obj.put("votantes", jVotantes);
-
-                JSONUtiles.grabar(JVOTANTES, jVotantes);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
         }
+
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("votantes", jVotantes);
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        JSONUtiles.grabar(JVOTANTES, obj);
     }
 
 

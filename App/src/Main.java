@@ -8,6 +8,10 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         CentroDeVotacion centro = new CentroDeVotacion();
         Padron padron = new Padron();
+        GestorDeArchivos gestor = new GestorDeArchivos();
+
+        List<Votante> votantes = gestor.leerVotantes();
+        List<Boleta> boletas = gestor.leerBoletas();
 
         Votante v1 = new Votante("Mauricio", "Tognocchi", 21, "45923395", 13);
 

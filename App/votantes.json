@@ -1,7 +1,11 @@
 {
   "votantes": [
     {
-      "nombre": "votante1"
+      "nombre": "Mauricio",
+      "apellido": "Tognocchi",
+      "edad": 21,
+      "dni": "45923395",
+      "nroMesa": 13
     }
   ]
 }

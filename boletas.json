@@ -1,0 +1,184 @@
+{
+  "boletas": [
+    {
+      "nombrePartido": "ALIANZA LA LIBERTAD AVANZA",
+      "sigla": "ALLA",
+      "numero": 503,
+      "candidatos": [
+        {"nombre": "Javier", "apellido": "Milei", "edad": 53, "dni": "20234567", "cargo": "Presidente", "profesion": "Economista"},
+        {"nombre": "Victoria", "apellido": "Villarruel", "edad": 48, "dni": "21234567", "cargo": "Vicepresidente", "profesion": "Abogada"},
+        {"nombre": "Ramiro", "apellido": "Marra", "edad": 41, "dni": "22234567", "cargo": "Senador", "profesion": "Financista"},
+        {"nombre": "Carlos", "apellido": "Kikuchi", "edad": 58, "dni": "23234567", "cargo": "Diputado", "profesion": "Periodista"},
+        {"nombre": "Lilia", "apellido": "Lemoine", "edad": 43, "dni": "24234567", "cargo": "Concejal", "profesion": "Actriz"}
+      ]
+    },
+    {
+      "nombrePartido": "PARTIDO NUEVO BUENOS AIRES",
+      "sigla": "PNBA",
+      "numero": 221,
+      "candidatos": [
+        {"nombre": "Esteban", "apellido": "Gómez", "edad": 50, "dni": "25234567", "cargo": "Presidente", "profesion": "Abogado"},
+        {"nombre": "Juliana", "apellido": "Morales", "edad": 42, "dni": "26234567", "cargo": "Vicepresidente", "profesion": "Economista"},
+        {"nombre": "Rodrigo", "apellido": "Pérez", "edad": 47, "dni": "27234567", "cargo": "Senador", "profesion": "Ingeniero"},
+        {"nombre": "Martina", "apellido": "López", "edad": 37, "dni": "28234567", "cargo": "Diputada", "profesion": "Docente"},
+        {"nombre": "Lucas", "apellido": "Fernández", "edad": 39, "dni": "29234567", "cargo": "Concejal", "profesion": "Arquitecto"}
+      ]
+    },
+    {
+      "nombrePartido": "LIBER AR",
+      "sigla": "LA",
+      "numero": 318,
+      "candidatos": [
+        {"nombre": "Luciano", "apellido": "Martínez", "edad": 45, "dni": "30234567", "cargo": "Presidente", "profesion": "Contador"},
+        {"nombre": "Romina", "apellido": "Suárez", "edad": 38, "dni": "31234567", "cargo": "Vicepresidente", "profesion": "Economista"},
+        {"nombre": "Marcos", "apellido": "Díaz", "edad": 52, "dni": "32234567", "cargo": "Senador", "profesion": "Abogado"},
+        {"nombre": "Carla", "apellido": "Mendoza", "edad": 40, "dni": "33234567", "cargo": "Diputada", "profesion": "Administradora"},
+        {"nombre": "Gustavo", "apellido": "Benítez", "edad": 48, "dni": "34234567", "cargo": "Concejal", "profesion": "Empresario"}
+      ]
+    },
+    {
+      "nombrePartido": "FRENTE DE IZQUIERDA UNIDAD",
+      "sigla": "FDIU",
+      "numero": 506,
+      "candidatos": [
+        {"nombre": "Myriam", "apellido": "Bregman", "edad": 51, "dni": "35234567", "cargo": "Presidente", "profesion": "Abogada"},
+        {"nombre": "Nicolás", "apellido": "Del Caño", "edad": 44, "dni": "36234567", "cargo": "Vicepresidente", "profesion": "Sociólogo"},
+        {"nombre": "Romina", "apellido": "Del Plá", "edad": 50, "dni": "37234567", "cargo": "Senadora", "profesion": "Docente"},
+        {"nombre": "Christian", "apellido": "Castillo", "edad": 49, "dni": "38234567", "cargo": "Diputado", "profesion": "Profesor"},
+        {"nombre": "Alejandro", "apellido": "Bodart", "edad": 59, "dni": "39234567", "cargo": "Concejal", "profesion": "Politólogo"}
+      ]
+    },
+    {
+      "nombrePartido": "FRENTE PATRIOTA FEDERAL",
+      "sigla": "FPF",
+      "numero": 95,
+      "candidatos": [
+        {"nombre": "César", "apellido": "Baeza", "edad": 62, "dni": "40234567", "cargo": "Presidente", "profesion": "Abogado"},
+        {"nombre": "Graciela", "apellido": "Romero", "edad": 55, "dni": "41234567", "cargo": "Vicepresidente", "profesion": "Contadora"},
+        {"nombre": "Daniel", "apellido": "Quiroga", "edad": 49, "dni": "42234567", "cargo": "Senador", "profesion": "Comerciante"},
+        {"nombre": "Silvia", "apellido": "González", "edad": 46, "dni": "43234567", "cargo": "Diputada", "profesion": "Docente"},
+        {"nombre": "Oscar", "apellido": "Luna", "edad": 58, "dni": "44234567", "cargo": "Concejal", "profesion": "Abogado"}
+      ]
+    },
+    {
+      "nombrePartido": "UNION LIBERAL",
+      "sigla": "UL",
+      "numero": 153,
+      "candidatos": [
+        {"nombre": "Federico", "apellido": "Romero", "edad": 45, "dni": "25234567", "cargo": "Presidente", "profesion": "Abogado"},
+        {"nombre": "Claudia", "apellido": "Santos", "edad": 39, "dni": "26234567", "cargo": "Vicepresidente", "profesion": "Economista"},
+        {"nombre": "Ignacio", "apellido": "Campos", "edad": 51, "dni": "27234567", "cargo": "Senador", "profesion": "Ingeniero"},
+        {"nombre": "Verónica", "apellido": "Paz", "edad": 36, "dni": "28234567", "cargo": "Diputada", "profesion": "Contadora"},
+        {"nombre": "Ricardo", "apellido": "Molina", "edad": 42, "dni": "29234567", "cargo": "Concejal", "profesion": "Docente"}
+      ]
+    },
+    {
+      "nombrePartido": "ALIANZA FUERZA PATRIA",
+      "sigla": "AFP",
+      "numero": 507,
+      "candidatos": [
+        {"nombre": "Eduardo", "apellido": "Ramírez", "edad": 56, "dni": "30234567", "cargo": "Presidente", "profesion": "Militar Retirado"},
+        {"nombre": "Natalia", "apellido": "Ibarra", "edad": 40, "dni": "31234567", "cargo": "Vicepresidente", "profesion": "Abogada"},
+        {"nombre": "Fernando", "apellido": "Correa", "edad": 48, "dni": "32234567", "cargo": "Senador", "profesion": "Administrador"},
+        {"nombre": "Julieta", "apellido": "Vega", "edad": 33, "dni": "33234567", "cargo": "Diputada", "profesion": "Comunicadora"},
+        {"nombre": "Marcelo", "apellido": "Suárez", "edad": 46, "dni": "34234567", "cargo": "Concejal", "profesion": "Empresario"}
+      ]
+    },
+    {
+      "nombrePartido": "COALICION CIVICA",
+      "sigla": "CC",
+      "numero": 47,
+      "candidatos": [
+        {"nombre": "Elisa", "apellido": "Carrió", "edad": 67, "dni": "35234567", "cargo": "Presidente", "profesion": "Abogada"},
+        {"nombre": "Maximiliano", "apellido": "Ferraro", "edad": 43, "dni": "36234567", "cargo": "Vicepresidente", "profesion": "Politólogo"},
+        {"nombre": "Mariana", "apellido": "Zuvic", "edad": 47, "dni": "37234567", "cargo": "Senadora", "profesion": "Comunicadora"},
+        {"nombre": "Juan", "apellido": "López", "edad": 50, "dni": "38234567", "cargo": "Diputado", "profesion": "Abogado"},
+        {"nombre": "Mónica", "apellido": "Frade", "edad": 55, "dni": "39234567", "cargo": "Diputada", "profesion": "Contadora"}
+      ]
+    },
+    {
+      "nombrePartido": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR",
+      "sigla": "MPSYCPS",
+      "numero": 305,
+      "candidatos": [
+        {"nombre": "Fernando", "apellido": "Solanas", "edad": 84, "dni": "40234567", "cargo": "Presidente", "profesion": "Cineasta"},
+        {"nombre": "Gabriela", "apellido": "Massuh", "edad": 60, "dni": "41234567", "cargo": "Vicepresidente", "profesion": "Escritora"},
+        {"nombre": "Eduardo", "apellido": "Macaluse", "edad": 62, "dni": "42234567", "cargo": "Senador", "profesion": "Profesor"},
+        {"nombre": "Ana", "apellido": "Zabaloy", "edad": 49, "dni": "43234567", "cargo": "Diputada", "profesion": "Docente"},
+        {"nombre": "Carlos", "apellido": "Raimundi", "edad": 65, "dni": "44234567", "cargo": "Concejal", "profesion": "Abogado"}
+      ]
+    },
+    {
+      "nombrePartido": "PROPUESTA FEDERAL PARA EL CAMBIO",
+      "sigla": "PFPEC",
+      "numero": 299,
+      "candidatos": [
+        {"nombre": "Mauricio", "apellido": "Macri", "edad": 66, "dni": "45234567", "cargo": "Presidente", "profesion": "Ingeniero"},
+        {"nombre": "Patricia", "apellido": "Bullrich", "edad": 68, "dni": "46234567", "cargo": "Vicepresidente", "profesion": "Politóloga"},
+        {"nombre": "Horacio", "apellido": "Larreta", "edad": 59, "dni": "47234567", "cargo": "Senador", "profesion": "Economista"},
+        {"nombre": "María", "apellido": "Vidal", "edad": 50, "dni": "48234567", "cargo": "Diputada", "profesion": "Socióloga"},
+        {"nombre": "Diego", "apellido": "Santilli", "edad": 54, "dni": "49234567", "cargo": "Concejal", "profesion": "Administrador"}
+      ]
+    },
+    {
+      "nombrePartido": "ALIANZA PROVINCIAS UNIDAS",
+      "sigla": "APU",
+      "numero": 508,
+      "candidatos": [
+        {"nombre": "Gustavo", "apellido": "Valdés", "edad": 55, "dni": "50234567", "cargo": "Presidente", "profesion": "Abogado"},
+        {"nombre": "Rodolfo", "apellido": "Suárez", "edad": 60, "dni": "51234567", "cargo": "Vicepresidente", "profesion": "Contador"},
+        {"nombre": "Gerardo", "apellido": "Morales", "edad": 64, "dni": "52234567", "cargo": "Senador", "profesion": "Abogado"},
+        {"nombre": "Omar", "apellido": "Perotti", "edad": 63, "dni": "53234567", "cargo": "Diputado", "profesion": "Administrador"},
+        {"nombre": "Raúl", "apellido": "Jalil", "edad": 58, "dni": "54234567", "cargo": "Concejal", "profesion": "Economista"}
+      ]
+    },
+    {
+      "nombrePartido": "ALIANZA POTENCIA",
+      "sigla": "AP",
+      "numero": 504,
+      "candidatos": [
+        {"nombre": "Sergio", "apellido": "Massa", "edad": 53, "dni": "55234567", "cargo": "Presidente", "profesion": "Abogado"},
+        {"nombre": "Agustín", "apellido": "Rossi", "edad": 64, "dni": "56234567", "cargo": "Vicepresidente", "profesion": "Ingeniero"},
+        {"nombre": "Wado", "apellido": "De Pedro", "edad": 51, "dni": "57234567", "cargo": "Senador", "profesion": "Abogado"},
+        {"nombre": "Victoria", "apellido": "Tolosa Paz", "edad": 46, "dni": "58234567", "cargo": "Diputada", "profesion": "Contadora"},
+        {"nombre": "Daniel", "apellido": "Scioli", "edad": 67, "dni": "59234567", "cargo": "Concejal", "profesion": "Empresario"}
+      ]
+    },
+    {
+      "nombrePartido": "ALIANZA UNION FEDERAL",
+      "sigla": "AUF",
+      "numero": 501,
+      "candidatos": [
+        {"nombre": "Miguel", "apellido": "Pichetto", "edad": 74, "dni": "60234567", "cargo": "Presidente", "profesion": "Abogado"},
+        {"nombre": "Florencia", "apellido": "Arias", "edad": 45, "dni": "61234567", "cargo": "Vicepresidente", "profesion": "Docente"},
+        {"nombre": "Raúl", "apellido": "Pérez", "edad": 58, "dni": "62234567", "cargo": "Senador", "profesion": "Economista"},
+        {"nombre": "Paula", "apellido": "Giménez", "edad": 37, "dni": "63234567", "cargo": "Diputada", "profesion": "Contadora"},
+        {"nombre": "Jorge", "apellido": "Cáceres", "edad": 41, "dni": "64234567", "cargo": "Concejal", "profesion": "Ingeniero"}
+      ]
+    },
+    {
+      "nombrePartido": "ALIANZA NUEVOS AIRES",
+      "sigla": "ANA",
+      "numero": 502,
+      "candidatos": [
+        {"nombre": "Luis", "apellido": "Caputo", "edad": 58, "dni": "65234567", "cargo": "Presidente", "profesion": "Economista"},
+        {"nombre": "Marta", "apellido": "Ocampo", "edad": 49, "dni": "66234567", "cargo": "Vicepresidente", "profesion": "Abogada"},
+        {"nombre": "Sebastián", "apellido": "Díaz", "edad": 38, "dni": "67234567", "cargo": "Senador", "profesion": "Administrador"},
+        {"nombre": "Laura", "apellido": "Benítez", "edad": 44, "dni": "68234567", "cargo": "Diputada", "profesion": "Docente"},
+        {"nombre": "Tomás", "apellido": "Aguilar", "edad": 35, "dni": "69234567", "cargo": "Concejal", "profesion": "Arquitecto"}
+      ]
+    },
+    {
+      "nombrePartido": "MOVIMIENTO AVANZADA SOCIALISTA",
+      "sigla": "MAS",
+      "numero": 276,
+      "candidatos": [
+        {"nombre": "Manuela", "apellido": "Castañeira", "edad": 39, "dni": "70234567", "cargo": "Presidente", "profesion": "Socióloga"},
+        {"nombre": "Eduardo", "apellido": "Mulhall", "edad": 55, "dni": "71234567", "cargo": "Vicepresidente", "profesion": "Ingeniero"},
+        {"nombre": "Mariana", "apellido": "Martínez", "edad": 43, "dni": "72234567", "cargo": "Senadora", "profesion": "Docente"},
+        {"nombre": "Julián", "apellido": "Gómez", "edad": 41, "dni": "73234567", "cargo": "Diputado", "profesion": "Sindicalista"},
+        {"nombre": "Camila", "apellido": "Rojas", "edad": 34, "dni": "74234567", "cargo": "Concejal", "profesion": "Periodista"}
+      ]
+    }
+  ]
+}

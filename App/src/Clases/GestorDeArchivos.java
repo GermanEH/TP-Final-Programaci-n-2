@@ -1,4 +1,5 @@
 package Clases;
+
 import Clases.JSONUtiles;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,29 +10,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import static Clases.JSONUtiles.grabar;
 
 public class GestorDeArchivos {
 
-    public void agregarVotante(Votante votante){
-        try {
-            JSONObject JSONObjectvotantes = new JSONObject(JSONUtiles.leer("votantes.json"));
-            JSONArray JSONArrayvotantes = JSONObjectvotantes.getJSONArray("votantes");
-            ArrayList votantes = new ArrayList();
-            votantes.add(JSONArrayvotantes.getString(1));
-            JSONUtiles.grabar(JSONArrayvotantes);
-        }catch(JSONException e) {
-            e.printStackTrace();
-        }
+    public void agregarVotante(Votante votante) {
+        List<Votante> votantes = JSONElecciones.leerVotantes();
+        votantes.add(votante);
+        JSONElecciones.guardarVotantes(votantes);
     }
 
-    public void leerVotantes(){
-        try {
-            JSONArray votantes = new JSONArray(JSONUtiles.leer("votantes.json"));
-        } catch(JSONException e){
-            e.printStackTrace();
-        }
+    public List<Votante> leerVotantes() {
+        return JSONElecciones.leerVotantes();
     }
 
 //    public void removerVotante(Votante votante){
@@ -45,23 +37,23 @@ public class GestorDeArchivos {
 //        }
 //    }
 
-    public void agregarBoleta(Boleta boleta){
-        try{
+    public void agregarBoleta(Boleta boleta) {
+        try {
             FileWriter file = new FileWriter("boletas.json");
             file.write(boleta.toString());
             file.flush();
             file.close();
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void leerBoletas(){
-        try{
+    public void leerBoletas() {
+        try {
             FileReader file = new FileReader("boletas.json");
             file.read();
             file.close();
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

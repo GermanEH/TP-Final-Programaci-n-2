@@ -1,7 +1,7 @@
 package Clases;
 
 public class Voto {
-    private Boleta boleta;
+    private Boleta boleta; // cambiar esto a n de lista
     private boolean validez;
 
     public Voto() {
