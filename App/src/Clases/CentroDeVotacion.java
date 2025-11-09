@@ -20,6 +20,46 @@ public class CentroDeVotacion {
         this.resultado = new HashMap<>();
     }
 
+    public boolean isEsVotacionAbierta() {
+        return esVotacionAbierta;
+    }
+
+    public void setEsVotacionAbierta(boolean esVotacionAbierta) {
+        this.esVotacionAbierta = esVotacionAbierta;
+    }
+
+    public List<Votante> getFila() {
+        return Fila;
+    }
+
+    public void setFila(List<Votante> fila) {
+        Fila = fila;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
+    }
+
+    public Urna getUrna() {
+        return urna;
+    }
+
+    public void setUrna(Urna urna) {
+        this.urna = urna;
+    }
+
+    public HashMap<Integer, Boleta> getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(HashMap<Integer, Boleta> resultado) {
+        this.resultado = resultado;
+    }
+
     public void abrirVotacion() {
         esVotacionAbierta = true;
     }

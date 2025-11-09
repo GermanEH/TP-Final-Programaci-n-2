@@ -12,7 +12,6 @@ public class Main {
         Padron padron = new Padron();
         GestorDeArchivos gestor = new GestorDeArchivos();
 
-        List<Votante> votantes = gestor.leerVotantes();
         List<Boleta> boletas = gestor.leerBoletas();
         centro.cargarBoletas(boletas);
 
@@ -23,6 +22,15 @@ public class Main {
         admins.put("Mauri", "1234");
         admins.put("German", "4321");
         admins.put("Juan", "1212");
+
+        List<Votante> votantes = gestor.leerVotantes();
+        for (Votante v : votantes) {
+            try {
+                padron.agregar(v);
+            } catch (VotanteException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         int menu;
         do {
@@ -56,6 +64,11 @@ public class Main {
                             throw new VotanteException("ERROR: DNI o número de votación incorrectos.");
                         }
 
+                        if (!centro.isEsVotacionAbierta()) {
+                            System.out.println("ERROR: La votación no está abierta.");
+                            continue;
+                        }
+
                         System.out.println("=========================================================================================================");
                         System.out.println("                           BIENVENIDO VOTANTE: " + votante.getNombre());
                         pausa(scan);
@@ -76,6 +89,8 @@ public class Main {
                         } catch (VotanteException e) {
                             System.out.println("ERROR: Boleta inválida, voto no registrado.");
                         }
+
+                        JSONElecciones.guardarVotantes(Padron.getVotantes());
 
                     } catch (VotanteException e) {
                         System.out.println("ERROR:" + e.getMessage());
@@ -99,6 +114,7 @@ public class Main {
                     if (admins.containsKey(nombre) && admins.get(nombre).equals(contra)) {
                         int menuAdmin;
                         do {
+                            System.out.println("Votación abierta: " + centro.isEsVotacionAbierta());
                             pausa(scan);
                             System.out.println("""
                                     |-----------------------------------------------| 
@@ -126,7 +142,14 @@ public class Main {
                                     int bLista = scan.nextInt();
                                     scan.nextLine();
                                     Boleta b = new Boleta(bNombre, bSiglas, bLista);
-                                    boletaUnica.agregar(b);
+
+                                    if(boletaUnica.buscarPorLista(bLista) != null){
+                                        System.out.println("ERROR: Ya existe una boleta con ese número de lista.");
+                                    } else {
+                                        boletaUnica.agregar(b);
+                                        gestor.agregarBoleta(b);
+                                    }
+
                                 }
                                 case 3 -> {
                                     System.out.print("Ingrese el numero de lista de la boleta para eliminarla : ");
@@ -135,6 +158,7 @@ public class Main {
                                     Boleta b = boletaUnica.buscarPorLista(nLista);
                                     if (b != null) {
                                         boletaUnica.eliminar(b);
+                                        gestor.eliminarBoleta(b);
                                         System.out.println("Boleta eliminada correctamente. ");
                                     } else {
                                         System.out.println("No se encontró la boleta. ");
@@ -161,8 +185,15 @@ public class Main {
                                         String cTrabajo = scan.nextLine();
 
                                         Candidato c = new Candidato(cNombre, cApellido, cEdad, cDni, b.getNombre(), cPuesto, cTrabajo);
-                                        b.agregarCandidato(c);
-                                        System.out.println("Candidato agregado a la boleta " + b.getNombre());
+
+                                        boolean existe = b.getCandidatos().stream().anyMatch(can -> can.getDni().equals(c.getDni()));
+                                        if(existe){
+                                            System.out.println("ERROR: Ya existe un candidato con ese DNI en esta boleta.");
+                                        } else {
+                                            b.agregarCandidato(c);
+                                            System.out.println("Candidato agregado a la boleta " + b.getNombre());
+                                        }
+
                                     } else {
                                         System.out.println("No se encontró la boleta con número de lista " + nLista);
                                     }
