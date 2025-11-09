@@ -183,13 +183,11 @@ public class Main {
                         int nLista = scan.nextInt();
                         scan.nextLine();
 
-                        Voto voto = new Voto(nLista, true);
-
-                        if (voto.isValidez()) {
-                            centro.procesarVoto(votante, voto);
-                            System.out.println("VOTO REGISTRADO PARA LA LISTA N°: " + voto.getNumeroLista());
-                        } else {
-                            throw new VotanteException("ERROR: Boleta inválida, voto no registrado.");
+                        try {
+                            centro.procesarVoto(votante, boletaUnica, nLista);
+                            System.out.println("VOTO REGISTRADO PARA LA LISTA N°: " + nLista);
+                        } catch (VotanteException e) {
+                            System.out.println("ERROR: Boleta inválida, voto no registrado.");
                         }
 
                     } catch (VotanteException e) {

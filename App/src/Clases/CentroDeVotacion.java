@@ -47,12 +47,16 @@ public class CentroDeVotacion {
         return ++turno;
     }
 
-    public void procesarVoto(Votante votante, Voto voto) throws VotanteException{
-        if(!esVotacionAbierta){
+    public void procesarVoto(Votante votante, BoletaUnica boletaUnica, int numeroLista) throws VotanteException {
+        if (!esVotacionAbierta) {
             throw new VotanteException("ERROR: No se puede procesar el voto");
         }
-        urna.agregar(voto);
-        votante.setVoto(true);
+
+        Voto voto = votante.votar(boletaUnica, numeroLista);
+
+        if (voto.isValidez()) {
+            urna.agregar(voto);
+        }
     }
 
     public Boleta contarVotos() throws VotanteException {

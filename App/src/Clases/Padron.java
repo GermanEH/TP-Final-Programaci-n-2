@@ -52,7 +52,6 @@ public final class Padron implements Registro<Votante> {
         return null;
     }
 
-    // (Si querés mantener los métodos viejos)
     public static boolean buscarPersona(String dni) {
         for (Votante v : votantes) {
             if (v.getDni().equals(dni)) return true;

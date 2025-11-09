@@ -3,10 +3,10 @@ package Clases;
 import java.util.Objects;
 
 public abstract class Persona<T> {
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String dni;
+    protected String nombre;
+    protected String apellido;
+    protected int edad;
+    protected String dni;
 
     public Persona() {
     }

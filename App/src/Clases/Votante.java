@@ -1,6 +1,8 @@
 package Clases;
 
 
+import java.util.List;
+
 public class Votante extends Persona {
     private int numero;
     private boolean voto;
@@ -54,14 +56,23 @@ public class Votante extends Persona {
 
         Boleta b = boletaUnica.buscarPorLista(numeroLista); // Busco la boleta
         boolean validez = b != null; // Si existe
-        Voto votoRealizado = new Voto(numeroLista, validez);
 
         if (validez) {
-            b.aumentarVotos(); // si existe aumento el contador de la boleta
-            this.voto = true; // marco que ya votó
+            b.aumentarVotos();
+            this.voto = true;
+
+
+            List<Votante> votantes = JSONElecciones.leerVotantes();
+            for (Votante v : votantes) {
+                if (v.getDni().equals(this.dni)) {
+                    v.setVoto(true);
+                    break;
+                }
+            }
+            JSONElecciones.guardarVotantes(votantes);
         }
 
-        return votoRealizado;
+        return new Voto(numeroLista, validez);
     }
 
 }
