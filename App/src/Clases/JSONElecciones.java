@@ -10,7 +10,6 @@ import java.util.List;
 
 public class JSONElecciones {
     private static final String JVOTANTES = "App/archivos/votantes.json";
-    private static final String CSVJSON = "App/archivos/csvjson.json";
 
     /// METODO PARA DESCERIALIZAR VOTANTES
     public static List<Votante> leerVotantes() {
@@ -79,43 +78,6 @@ public class JSONElecciones {
             throw new RuntimeException(e);
         }
         JSONUtiles.grabar(JVOTANTES, obj);
-    }
-
-
-    ///  METODO PARA DESCERIALIZAR CSV
-    public static void leerCsvJson() {
-        JSONTokener tokener = JSONUtiles.leer(CSVJSON);
-        if (tokener == null) {
-            System.out.println("ERROR: No existe o nulo");
-            return;
-        }
-
-        JSONArray jArray = null;
-        try {
-            jArray = new JSONArray(tokener);
-
-            List<Votante> votantes = new ArrayList<>();
-
-            for (int i = 0; i < jArray.length(); i++) {
-                JSONObject jV = jArray.getJSONObject(i);
-
-                Votante v = new Votante(
-                        jV.getString("nombre"),
-                        jV.getString("apellido"),
-                        jV.getInt("edad"),
-                        jV.getString("dni"),
-                        jV.getInt("numero"),
-                        jV.getBoolean("voto")
-                );
-                votantes.add(v);
-            }
-
-            guardarVotantes(votantes);
-            System.out.println("SE IMPORTARON LOS VOTANTES DEL csvjson.json");
-
-        } catch (JSONException e) {
-            System.out.println("ERROR: No se pudo leer el archivo csvjson.json");
-        }
     }
 
 }
