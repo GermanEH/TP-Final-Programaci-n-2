@@ -1,6 +1,6 @@
 {"votantes": [
     {
-        "voto": false,
+        "voto": true,
         "numero": 1,
         "apellido": "Aliz",
         "nombre": "Lautaro Uriel",
@@ -8,7 +8,7 @@
         "dni": "40.567.890"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 2,
         "apellido": "Allende",
         "nombre": "Francisco",
@@ -16,7 +16,7 @@
         "dni": "29.876.543"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 3,
         "apellido": "Bejar",
         "nombre": "Francisco Jose",
@@ -152,7 +152,7 @@
         "dni": "25.456.789"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 20,
         "apellido": "Lecuona Gonzalez",
         "nombre": "Eva Del Mar",
@@ -160,7 +160,7 @@
         "dni": "42.109.876"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 21,
         "apellido": "Lecuona",
         "nombre": "Cristian Emanuel",
@@ -168,7 +168,7 @@
         "dni": "32.567.890"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 22,
         "apellido": "Lucero Martin",
         "nombre": "Ornelia",
@@ -224,7 +224,7 @@
         "dni": "30.456.789"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 29,
         "apellido": "Oliver Caceres",
         "nombre": "Luisina",
@@ -232,7 +232,7 @@
         "dni": "39.789.012"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 30,
         "apellido": "Ondicol D'Ambrosio",
         "nombre": "Aidan Ismael",
@@ -264,7 +264,7 @@
         "dni": "28.678.901"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 34,
         "apellido": "Rodriguez",
         "nombre": "Martin Nicolas",

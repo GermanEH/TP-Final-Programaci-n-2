@@ -1,4 +1,14 @@
-{
-    "numeroLista": 307,
-    "validez": true
-}
+{"votos": [
+    {
+        "numeroLista": 307,
+        "validez": true
+    },
+    {
+        "numeroLista": 506,
+        "validez": true
+    },
+    {
+        "numeroLista": 305,
+        "validez": true
+    }
+]}

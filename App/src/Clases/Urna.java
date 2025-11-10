@@ -1,5 +1,6 @@
 package Clases;
 import Interfaces.Registro;
+import JSONUtiles.JSONBoletas;
 import JSONUtiles.JSONUrna;
 import org.json.JSONException;
 
@@ -16,20 +17,15 @@ public class Urna implements Registro<Voto> {
     }
 
     public static void setUrnaVotos(List<Voto> urnaVotos) {
-        try {
-            for (Voto v : urnaVotos) {
-                JSONUrna.guardarVoto(v);
-            }
-        } catch (JSONException e) {
-            System.out.println(e);
-        }
-
+                JSONUrna.guardarVotos(urnaVotos);
     }
 
     @Override
     public void agregar(Voto voto) {
         try {
-            JSONUrna.guardarVoto(voto);
+            List<Voto> votos = JSONUrna.leerVotos();
+            votos.add(voto);
+            JSONUrna.guardarVotos(votos);
         } catch (JSONException e) {
             System.out.println(e);
         }
