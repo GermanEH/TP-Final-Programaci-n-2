@@ -1,26 +1,28 @@
 package Clases;
 
+import java.util.Objects;
+
 public class Voto {
-    private Boleta boleta;
+    private int numeroLista; // cambiar esto a n de lista
     private boolean validez;
 
     public Voto() {
     }
 
-    public Voto(Boleta boleta, boolean validez) {
-        this.boleta = boleta;
+    public Voto(int numeroLista, boolean validez) {
+        this.numeroLista = numeroLista;
         this.validez = validez;
     }
 
-    public Boleta getBoleta() {
-        return boleta;
+    public int getNumeroLista() {
+        return numeroLista;
     }
 
-    public void setBoleta(Boleta boleta) {
-        this.boleta = boleta;
+    public void setNumeroLista(int numeroLista) {
+        this.numeroLista = numeroLista;
     }
 
-    public boolean getValidez() {
+    public boolean isValidez() {
         return validez;
     }
 
@@ -29,9 +31,20 @@ public class Voto {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Voto voto)) return false;
+        return numeroLista == voto.numeroLista && validez == voto.validez;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numeroLista, validez);
+    }
+
+    @Override
     public String toString() {
         return "Voto{" +
-                "boleta=" + boleta +
+                "numeroLista=" + numeroLista +
                 ", validez=" + validez +
                 '}';
     }

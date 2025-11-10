@@ -12,61 +12,122 @@ public class CentroDeVotacion {
     private List<Votante> Fila;
     private int turno = 0;
     private Urna urna;
-    private HashMap<String,Boleta> resultado;
+    private HashMap<Integer, Boleta> resultado;
 
-    public CentroDeVotacion(){
-        this.Fila = new ArrayList<Votante>();
+    public CentroDeVotacion() {
+        this.Fila = new ArrayList<>();
         this.urna = new Urna();
         this.resultado = new HashMap<>();
-        //this.resultado.entrySet("En blanco",new Boleta("En blanco","","en blanco",0));
     }
-    public void abrirVotacion(){
+
+    public boolean isEsVotacionAbierta() {
+        return esVotacionAbierta;
+    }
+
+    public void setEsVotacionAbierta(boolean esVotacionAbierta) {
+        this.esVotacionAbierta = esVotacionAbierta;
+    }
+
+    public List<Votante> getFila() {
+        return Fila;
+    }
+
+    public void setFila(List<Votante> fila) {
+        Fila = fila;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
+    }
+
+    public Urna getUrna() {
+        return urna;
+    }
+
+    public void setUrna(Urna urna) {
+        this.urna = urna;
+    }
+
+    public HashMap<Integer, Boleta> getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(HashMap<Integer, Boleta> resultado) {
+        this.resultado = resultado;
+    }
+
+    public void abrirVotacion() {
         esVotacionAbierta = true;
     }
 
-    public int asignarTurno(Votante votante) throws VotanteException{
-        if(esVotacionAbierta && Padron.buscarPersona(votante.getNumero()) && !votante.getVoto()) {
-            return ++turno;
+    public void cerrarVotacion() {
+        esVotacionAbierta = false;
+    }
+
+    public void cargarBoletas(List<Boleta> boletas) {
+        for (Boleta b : boletas) {
+            resultado.put(b.getLista(), b);
         }
-        else if(!esVotacionAbierta){
+    }
+
+    public int asignarTurno(Votante votante) throws VotanteException {
+        if (!esVotacionAbierta) {
             throw new VotanteException("La votación no está abierta.");
-        } else if(!Padron.buscarPersona(votante.getDni())){
-            throw new VotanteException("No se encontró el dni en el padrón de votantes.");
-        } else if(!votante.getVoto()){
+        }
+        if (!Padron.buscarPersona(votante.getDni())) {
+            throw new VotanteException("No se encontró el votante en el padrón.");
+        }
+        if (votante.getVoto()) {
             throw new VotanteException("Usted ya ha votado.");
         }
-        return 0;
+        return ++turno;
     }
 
-    public int asignarTurno(String votanteDni){
-        if(Padron.buscarPersona(votanteDni)) {
-            return ++turno;
+    public void procesarVoto(Votante votante, BoletaUnica boletaUnica, int numeroLista) throws VotanteException {
+        if (!esVotacionAbierta) {
+            throw new VotanteException("ERROR: No se puede procesar el voto");
         }
-        return 0;
-    }
 
-    public void procesarVoto(Votante votante, Voto voto) {
-        this.urna.agregar(voto);
-        votante.setVoto(true);
-    }
+        Voto voto = votante.votar(boletaUnica, numeroLista);
 
-    public void cerrarVotacion(){
-        esVotacionAbierta=false;
-    }
-
-    public Boleta contarVotos() throws VotanteException{
-        if(!esVotacionAbierta) {
-            throw new VotanteException("La votación todavía no fue cerrada.");
+        if (voto.isValidez()) {
+            urna.agregar(voto);
         }
+    }
+
+    public Boleta contarVotos() throws VotanteException {
+        if (esVotacionAbierta) {
+            throw new VotanteException("La votación todavía está abierta. Primero debe cerrarse.");
+        }
+
+        if(urna.getUrnaVotos().isEmpty()){
+            throw new VotanteException("ERROR: NO HAY VOTOS EN LA URNA.");
+        }
+
         Boleta ganador = null;
-        for(Voto voto:urna.getUrnaVotos()){
-            if(!voto.getValidez()) {
-                //this.resultado.get("En blanco").aumentarVotos();
+        for (Voto voto : urna.getUrnaVotos()) {
+            if (voto.isValidez()) {
+                Boleta b = resultado.get(voto.getNumeroLista());
+                if (b != null) {
+                    b.aumentarVotos();
+                }
             } else {
-                this.resultado.get(voto.getBoleta().getNombre()).aumentarVotos();
+                // resultado.get(0).aumentarVotos(); // si querés contar votos en blanco
             }
         }
+
+        for (Boleta b : resultado.values()) {
+            if (ganador == null || b.getVotos() > ganador.getVotos()) {
+                ganador = b;
+            }
+        }
+
+        System.out.println("GANADOR: "+ganador.getLista() +"("+ ganador.getNombre() + ")");
         return ganador;
     }
-
 }
+

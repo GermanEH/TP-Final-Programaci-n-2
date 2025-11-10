@@ -4,6 +4,7 @@ import Excepciones.VotanteException;
 import Interfaces.Registro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public final class Padron implements Registro<Votante> {
 
@@ -11,6 +12,11 @@ public final class Padron implements Registro<Votante> {
 
     public Padron() {
     }
+
+    public static List<Votante> getVotantes() {
+        return new ArrayList<>(votantes);
+    }
+
 
     @Override
     public void agregar(Votante v) throws VotanteException {
@@ -52,7 +58,6 @@ public final class Padron implements Registro<Votante> {
         return null;
     }
 
-    // (Si querés mantener los métodos viejos)
     public static boolean buscarPersona(String dni) {
         for (Votante v : votantes) {
             if (v.getDni().equals(dni)) return true;

@@ -1,0 +1,362 @@
+{"votantes": [
+    {
+        "voto": false,
+        "numero": 1,
+        "apellido": "Aliz",
+        "nombre": "Lautaro Uriel",
+        "edad": 26,
+        "dni": "40.567.890"
+    },
+    {
+        "voto": false,
+        "numero": 2,
+        "apellido": "Allende",
+        "nombre": "Francisco",
+        "edad": 55,
+        "dni": "29.876.543"
+    },
+    {
+        "voto": false,
+        "numero": 3,
+        "apellido": "Bejar",
+        "nombre": "Francisco Jose",
+        "edad": 33,
+        "dni": "36.456.789"
+    },
+    {
+        "voto": false,
+        "numero": 4,
+        "apellido": "Bentea",
+        "nombre": "Juan Sebastian",
+        "edad": 48,
+        "dni": "32.123.456"
+    },
+    {
+        "voto": false,
+        "numero": 5,
+        "apellido": "Burcaizea",
+        "nombre": "Franco",
+        "edad": 19,
+        "dni": "48.765.432"
+    },
+    {
+        "voto": false,
+        "numero": 6,
+        "apellido": "Cidade",
+        "nombre": "Brian Ezequiel",
+        "edad": 61,
+        "dni": "22.345.678"
+    },
+    {
+        "voto": false,
+        "numero": 7,
+        "apellido": "Del Bo",
+        "nombre": "Manuel Ignacio",
+        "edad": 29,
+        "dni": "38.654.321"
+    },
+    {
+        "voto": false,
+        "numero": 8,
+        "apellido": "Delgado Vega Diaz",
+        "nombre": "Nadia Agustina",
+        "edad": 72,
+        "dni": "19.432.109"
+    },
+    {
+        "voto": false,
+        "numero": 9,
+        "apellido": "Echavarria",
+        "nombre": "Ivan",
+        "edad": 16,
+        "dni": "60.210.987"
+    },
+    {
+        "voto": false,
+        "numero": 10,
+        "apellido": "Espinoza",
+        "nombre": "Martin Nahuel",
+        "edad": 41,
+        "dni": "34.987.654"
+    },
+    {
+        "voto": false,
+        "numero": 11,
+        "apellido": "Esposito Papa",
+        "nombre": "Leandro Martin",
+        "edad": 52,
+        "dni": "30.789.012"
+    },
+    {
+        "voto": false,
+        "numero": 12,
+        "apellido": "Garcia",
+        "nombre": "Brian Luciano",
+        "edad": 22,
+        "dni": "45.321.098"
+    },
+    {
+        "voto": false,
+        "numero": 13,
+        "apellido": "Garcia Retamar",
+        "nombre": "Gabriela",
+        "edad": 67,
+        "dni": "20.109.876"
+    },
+    {
+        "voto": false,
+        "numero": 14,
+        "apellido": "Gatto",
+        "nombre": "Gaston",
+        "edad": 37,
+        "dni": "35.012.345"
+    },
+    {
+        "voto": false,
+        "numero": 15,
+        "apellido": "Giampietro",
+        "nombre": "Julian",
+        "edad": 43,
+        "dni": "33.678.901"
+    },
+    {
+        "voto": false,
+        "numero": 16,
+        "apellido": "Gimenez",
+        "nombre": "Facundo",
+        "edad": 27,
+        "dni": "39.901.234"
+    },
+    {
+        "voto": false,
+        "numero": 17,
+        "apellido": "Hidalgo",
+        "nombre": "Maria Florencia",
+        "edad": 63,
+        "dni": "21.543.210"
+    },
+    {
+        "voto": false,
+        "numero": 18,
+        "apellido": "Horianski",
+        "nombre": "German Ezequiel",
+        "edad": 30,
+        "dni": "38.234.567"
+    },
+    {
+        "voto": false,
+        "numero": 19,
+        "apellido": "Iriarte",
+        "nombre": "Lucas Matias",
+        "edad": 58,
+        "dni": "25.456.789"
+    },
+    {
+        "voto": false,
+        "numero": 20,
+        "apellido": "Lecuona Gonzalez",
+        "nombre": "Eva Del Mar",
+        "edad": 24,
+        "dni": "42.109.876"
+    },
+    {
+        "voto": false,
+        "numero": 21,
+        "apellido": "Lecuona",
+        "nombre": "Cristian Emanuel",
+        "edad": 46,
+        "dni": "32.567.890"
+    },
+    {
+        "voto": false,
+        "numero": 22,
+        "apellido": "Lucero Martin",
+        "nombre": "Ornelia",
+        "edad": 51,
+        "dni": "31.098.765"
+    },
+    {
+        "voto": false,
+        "numero": 23,
+        "apellido": "Manuel",
+        "nombre": "Emiliano",
+        "edad": 17,
+        "dni": "56.789.012"
+    },
+    {
+        "voto": false,
+        "numero": 24,
+        "apellido": "Manzo",
+        "nombre": "Valentina",
+        "edad": 35,
+        "dni": "35.890.123"
+    },
+    {
+        "voto": false,
+        "numero": 25,
+        "apellido": "Mariscal",
+        "nombre": "Juan Manuel",
+        "edad": 49,
+        "dni": "31.234.567"
+    },
+    {
+        "voto": false,
+        "numero": 26,
+        "apellido": "Martinez",
+        "nombre": "Dario",
+        "edad": 69,
+        "dni": "19.987.654"
+    },
+    {
+        "voto": false,
+        "numero": 27,
+        "apellido": "Medina",
+        "nombre": "Mateo",
+        "edad": 23,
+        "dni": "43.012.345"
+    },
+    {
+        "voto": false,
+        "numero": 28,
+        "apellido": "Miri",
+        "nombre": "Tobias Pablo",
+        "edad": 53,
+        "dni": "30.456.789"
+    },
+    {
+        "voto": false,
+        "numero": 29,
+        "apellido": "Oliver Caceres",
+        "nombre": "Luisina",
+        "edad": 28,
+        "dni": "39.789.012"
+    },
+    {
+        "voto": false,
+        "numero": 30,
+        "apellido": "Ondicol D'Ambrosio",
+        "nombre": "Aidan Ismael",
+        "edad": 65,
+        "dni": "20.890.123"
+    },
+    {
+        "voto": false,
+        "numero": 31,
+        "apellido": "Ordoñez Alcaraz",
+        "nombre": "Nahuel Alejandro",
+        "edad": 31,
+        "dni": "37.012.345"
+    },
+    {
+        "voto": false,
+        "numero": 32,
+        "apellido": "Pacholi",
+        "nombre": "Lorenzo",
+        "edad": 44,
+        "dni": "33.901.234"
+    },
+    {
+        "voto": false,
+        "numero": 33,
+        "apellido": "Preckel",
+        "nombre": "Andres",
+        "edad": 56,
+        "dni": "28.678.901"
+    },
+    {
+        "voto": false,
+        "numero": 34,
+        "apellido": "Rodriguez",
+        "nombre": "Martin Nicolas",
+        "edad": 18,
+        "dni": "50.345.678"
+    },
+    {
+        "voto": false,
+        "numero": 35,
+        "apellido": "Romero",
+        "nombre": "Cristian Exequiel",
+        "edad": 60,
+        "dni": "23.234.567"
+    },
+    {
+        "voto": false,
+        "numero": 36,
+        "apellido": "Rossi",
+        "nombre": "Juan Manuel",
+        "edad": 36,
+        "dni": "35.567.890"
+    },
+    {
+        "voto": false,
+        "numero": 37,
+        "apellido": "Saldivia",
+        "nombre": "Lucas Rafael",
+        "edad": 47,
+        "dni": "32.789.012"
+    },
+    {
+        "voto": false,
+        "numero": 38,
+        "apellido": "Sosa",
+        "nombre": "Lautaro",
+        "edad": 50,
+        "dni": "31.789.012"
+    },
+    {
+        "voto": false,
+        "numero": 39,
+        "apellido": "Stellatelli",
+        "nombre": "Santiago Ariel",
+        "edad": 20,
+        "dni": "47.901.234"
+    },
+    {
+        "voto": false,
+        "numero": 40,
+        "apellido": "striebeck",
+        "nombre": "hernan matias",
+        "edad": 64,
+        "dni": "21.012.345"
+    },
+    {
+        "voto": true,
+        "numero": 41,
+        "apellido": "Tognocchi",
+        "nombre": "Mauricio",
+        "edad": 21,
+        "dni": "45.923.395"
+    },
+    {
+        "voto": false,
+        "numero": 42,
+        "apellido": "Turchi",
+        "nombre": "Dario Alberto",
+        "edad": 42,
+        "dni": "34.567.890"
+    },
+    {
+        "voto": false,
+        "numero": 43,
+        "apellido": "vallejo torres",
+        "nombre": "martin israel",
+        "edad": 57,
+        "dni": "27.890.123"
+    },
+    {
+        "voto": false,
+        "numero": 44,
+        "apellido": "Vega",
+        "nombre": "Matias Ariel",
+        "edad": 25,
+        "dni": "41.234.567"
+    },
+    {
+        "voto": false,
+        "numero": 45,
+        "apellido": "Zwickier",
+        "nombre": "Matias",
+        "edad": 70,
+        "dni": "18.012.345"
+    }
+]}
