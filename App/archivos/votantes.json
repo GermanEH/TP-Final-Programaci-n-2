@@ -136,7 +136,7 @@
         "dni": "21.543.210"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 18,
         "apellido": "Horianski",
         "nombre": "German Ezequiel",

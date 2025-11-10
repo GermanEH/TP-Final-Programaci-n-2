@@ -11,11 +11,12 @@ public class Main {
         CentroDeVotacion centro = new CentroDeVotacion();
         Padron padron = new Padron();
         GestorDeArchivos gestor = new GestorDeArchivos();
+        Urna u = new Urna();
 
         List<Boleta> boletas = gestor.leerBoletas();
         centro.cargarBoletas(boletas);
 
-        BoletaUnica boletaUnica = new BoletaUnica(new HashSet<>(boletas));
+        BoletaUnica boletaUnica = new BoletaUnica();
 
         Map<String, String> admins = new HashMap<>();
         admins.put("Mauri", "1234");

@@ -1,6 +1,7 @@
 package Clases;
 
 import Interfaces.Registro;
+import JSONUtiles.JSONBoletas;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -8,49 +9,39 @@ import java.util.List;
 import java.util.Set;
 
 public class BoletaUnica implements Registro<Boleta> {
-    Set<Boleta> boletasUnicas;
 
-    public BoletaUnica(Set<Boleta> boletaUnica) {
-        this.boletasUnicas = boletaUnica;
-    }
-
-    public Set<Boleta> getBoletasUnicas() {
-        return boletasUnicas;
-    }
-
-    public void setBoletaUnica(Set<Boleta> boletaUnica) {
-        this.boletasUnicas = boletaUnica;
-    }
-
-    @Override
-    public String toString() {
-        return "Clases.BoletaUnica{" +
-                "boletaUnica=" + boletasUnicas +
-                '}';
+    public BoletaUnica() {
     }
 
     @Override
     public void agregar(Boleta boleta) {
-        boletasUnicas.add(boleta);
+        List<Boleta> boletas = JSONBoletas.leerBoletas();
+        boletas.add(boleta);
+        JSONBoletas.guardarBoletas(boletas);
     }
 
     @Override
     public void eliminar(Boleta boleta) {
-        boletasUnicas.remove(boleta);
+        List<Boleta> boletas = JSONBoletas.leerBoletas();
+        boletas.removeIf(b -> b.getLista() == boleta.getLista());
+        JSONBoletas.guardarBoletas(boletas);
     }
 
     @Override
     public void mostrar() {
-        if (boletasUnicas.isEmpty()) {
+
+        List<Boleta> boletas = JSONBoletas.leerBoletas();
+
+        if (boletas.isEmpty()) {
             System.out.println("No hay boletas disponibles");
             return;
         }
 
         System.out.println("------------------------------BOLETAS DISPONIBLES------------------------------");
-        List<Boleta> listaBoletas = new ArrayList<>(boletasUnicas);
-        listaBoletas.sort(Comparator.comparingInt(Boleta::getLista));
 
-        for (Boleta b : listaBoletas) {
+        boletas.sort(Comparator.comparingInt(Boleta::getLista));
+
+        for (Boleta b : boletas) {
             System.out.println(b);
             int j = 1;
             for (Candidato c : b.getCandidatos()) {
@@ -67,7 +58,10 @@ public class BoletaUnica implements Registro<Boleta> {
     }
 
     public Boleta buscarPorLista(int lista) {
-        for (Boleta boleta : boletasUnicas) {
+
+        List<Boleta> boletas = JSONBoletas.leerBoletas();
+
+        for (Boleta boleta : boletas) {
             if (boleta.getLista() == lista) {
                 return boleta;
             }
