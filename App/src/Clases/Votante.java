@@ -36,11 +36,6 @@ public class Votante extends Persona {
         this.numero = numero;
     }
 
-    public void votar(Boleta boleta) {
-        boleta.setVotos(boleta.getVotos() + 1);
-        voto = true;
-    }
-
     public boolean getVoto() {
         return voto;
     }
@@ -49,7 +44,7 @@ public class Votante extends Persona {
         this.voto = voto;
     }
 
-    public Voto votar (BoletaUnica boletaUnica, int numeroLista){
+    public Voto votar(BoletaUnica boletaUnica, int numeroLista) {
 
         if (this.voto) { // si ya votó antes
             return new Voto(-1, false); // voto inválido
@@ -59,7 +54,7 @@ public class Votante extends Persona {
         boolean validez = b != null; // Si existe
 
         if (validez) {
-            b.aumentarVotos();
+        //    b.aumentarVotos();
             this.voto = true;
 
 

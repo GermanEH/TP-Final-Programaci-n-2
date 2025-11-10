@@ -36,10 +36,8 @@ public class JSONBoletas {
                 String nombre = jB.getString("nombre");
                 String sigla = jB.getString("sigla");
                 int lista = jB.getInt("lista");
-                int votos = jB.getInt("votos");
 
                 Boleta b = new Boleta(nombre, sigla, lista);
-                b.setVotos(votos);
 
                 if (jB.has("candidatos")) {
                     List<Candidato> candidatos = deserializarCandidatos(jB.getJSONArray("candidatos"));
@@ -67,7 +65,6 @@ public class JSONBoletas {
                 jB.put("nombre", b.getNombre());
                 jB.put("sigla", b.getSigla());
                 jB.put("lista", b.getLista());
-                jB.put("votos", b.getVotos());
 
                 jB.put("candidatos", serializarCandidatos(b.getCandidatos()));
                 jBoletas.put(jB);
