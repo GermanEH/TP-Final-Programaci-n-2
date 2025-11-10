@@ -1,6 +1,8 @@
 package Clases;
 
 import Excepciones.VotanteException;
+import JSONUtiles.JSONBoletas;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +14,7 @@ public class CentroDeVotacion {
     private List<Votante> Fila;
     private int turno = 0;
     private Urna urna;
-    private HashMap<Integer, Boleta> resultado;
+    private HashMap<Integer, Integer> resultado;
 
     public CentroDeVotacion() {
         this.Fila = new ArrayList<>();
@@ -52,11 +54,11 @@ public class CentroDeVotacion {
         this.urna = urna;
     }
 
-    public HashMap<Integer, Boleta> getResultado() {
+    public HashMap<Integer, Integer> getResultado() {
         return resultado;
     }
 
-    public void setResultado(HashMap<Integer, Boleta> resultado) {
+    public void setResultado(HashMap<Integer, Integer> resultado) {
         this.resultado = resultado;
     }
 
@@ -70,7 +72,7 @@ public class CentroDeVotacion {
 
     public void cargarBoletas(List<Boleta> boletas) {
         for (Boleta b : boletas) {
-            resultado.put(b.getLista(), b);
+            resultado.put(b.getLista(), 0);
         }
     }
 
@@ -99,7 +101,7 @@ public class CentroDeVotacion {
         }
     }
 
-    public Boleta contarVotos() throws VotanteException {
+    public Integer contarVotos() throws VotanteException, JSONException {
         if (esVotacionAbierta) {
             throw new VotanteException("La votación todavía está abierta. Primero debe cerrarse.");
         }
@@ -108,25 +110,27 @@ public class CentroDeVotacion {
             throw new VotanteException("ERROR: NO HAY VOTOS EN LA URNA.");
         }
 
-        Boleta ganador = null;
         for (Voto voto : urna.getUrnaVotos()) {
             if (voto.isValidez()) {
-                Boleta b = resultado.get(voto.getNumeroLista());
-                if (b != null) {
-                    b.aumentarVotos();
-                }
+                int numeroLista = voto.getNumeroLista();
+                resultado.put(numeroLista, resultado.get(numeroLista)+1);
             } else {
                 // resultado.get(0).aumentarVotos(); // si querés contar votos en blanco
             }
         }
-
-        for (Boleta b : resultado.values()) {
-            if (ganador == null || b.getVotos() > ganador.getVotos()) {
-                ganador = b;
+        Integer ganador = 0;
+        for (Integer lista : resultado.keySet()) {
+            if (resultado.get(lista) > ganador){
+                ganador = lista;
             }
         }
 
-        System.out.println("GANADOR: "+ganador.getLista() +"("+ ganador.getNombre() + ")");
+        for(Boleta b: JSONBoletas.leerBoletas()){
+            if(b.getLista()==ganador){
+                System.out.println("GANADOR: " + b);
+                break;
+            }
+        }
         return ganador;
     }
 }

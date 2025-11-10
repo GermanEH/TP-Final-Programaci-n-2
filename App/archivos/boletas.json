@@ -49,7 +49,6 @@
                 "dni": "24234567"
             }
         ],
-        "votos": 0,
         "nombre": "ALIANZA LA LIBERTAD AVANZA"
     },
     {
@@ -102,7 +101,6 @@
                 "dni": "29234567"
             }
         ],
-        "votos": 0,
         "nombre": "PARTIDO NUEVO BUENOS AIRES"
     },
     {
@@ -155,7 +153,6 @@
                 "dni": "34234567"
             }
         ],
-        "votos": 0,
         "nombre": "LIBER AR"
     },
     {
@@ -208,7 +205,6 @@
                 "dni": "39234567"
             }
         ],
-        "votos": 0,
         "nombre": "FRENTE DE IZQUIERDA UNIDAD"
     },
     {
@@ -261,7 +257,6 @@
                 "dni": "44234567"
             }
         ],
-        "votos": 0,
         "nombre": "FRENTE PATRIOTA FEDERAL"
     },
     {
@@ -314,7 +309,6 @@
                 "dni": "29234567"
             }
         ],
-        "votos": 0,
         "nombre": "UNION LIBERAL"
     },
     {
@@ -367,7 +361,6 @@
                 "dni": "34234567"
             }
         ],
-        "votos": 0,
         "nombre": "ALIANZA FUERZA PATRIA"
     },
     {
@@ -420,7 +413,6 @@
                 "dni": "39234567"
             }
         ],
-        "votos": 0,
         "nombre": "COALICION CIVICA"
     },
     {
@@ -473,7 +465,6 @@
                 "dni": "44234567"
             }
         ],
-        "votos": 0,
         "nombre": "MOVIMIENTO POPULAR SOCIAL Y CULTURAL PROYECTO SUR"
     },
     {
@@ -526,7 +517,6 @@
                 "dni": "49234567"
             }
         ],
-        "votos": 0,
         "nombre": "PROPUESTA FEDERAL PARA EL CAMBIO"
     },
     {
@@ -579,7 +569,6 @@
                 "dni": "54234567"
             }
         ],
-        "votos": 0,
         "nombre": "ALIANZA PROVINCIAS UNIDAS"
     },
     {
@@ -632,7 +621,6 @@
                 "dni": "59234567"
             }
         ],
-        "votos": 0,
         "nombre": "ALIANZA POTENCIA"
     },
     {
@@ -685,7 +673,6 @@
                 "dni": "64234567"
             }
         ],
-        "votos": 0,
         "nombre": "FRENTE FEDERAL RENOVADOR"
     },
     {
@@ -738,7 +725,6 @@
                 "dni": "69234567"
             }
         ],
-        "votos": 0,
         "nombre": "MOVIMIENTO HUMANISTA NACIONAL"
     },
     {
@@ -791,7 +777,6 @@
                 "dni": "74234567"
             }
         ],
-        "votos": 0,
         "nombre": "PARTIDO VERDE ARGENTINO"
     },
     {
@@ -844,14 +829,12 @@
                 "dni": "79234567"
             }
         ],
-        "votos": 0,
         "nombre": "ALIANZA FUTURO ARGENTINO"
     },
     {
         "lista": 1331,
         "sigla": "NAZI",
         "candidatos": [],
-        "votos": 0,
         "nombre": "PruebaTP"
     }
 ]}

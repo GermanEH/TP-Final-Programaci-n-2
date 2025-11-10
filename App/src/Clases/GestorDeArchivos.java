@@ -1,23 +1,26 @@
 package Clases;
 
+import JSONUtiles.JSONBoletas;
+import JSONUtiles.JSONVotantes;
+
 import java.util.List;
 
 public class GestorDeArchivos {
 
     public void agregarVotante(Votante votante) {
-        List<Votante> votantes = JSONElecciones.leerVotantes();
+        List<Votante> votantes = JSONVotantes.leerVotantes();
         votantes.add(votante);
-        JSONElecciones.guardarVotantes(votantes);
+        JSONVotantes.guardarVotantes(votantes);
     }
 
     public List<Votante> leerVotantes() {
-        return JSONElecciones.leerVotantes();
+        return JSONVotantes.leerVotantes();
     }
 
     public void eliminarVotante(Votante votante) {
-        List<Votante> votantes = JSONElecciones.leerVotantes();
+        List<Votante> votantes = JSONVotantes.leerVotantes();
         votantes.removeIf(v -> v.getDni().equals(votante.getDni()));
-        JSONElecciones.guardarVotantes(votantes);
+        JSONVotantes.guardarVotantes(votantes);
     }
 
     public void agregarBoleta(Boleta boleta) {

@@ -1,6 +1,6 @@
 import Clases.*;
 import Excepciones.VotanteException;
-import org.json.JSONTokener;
+import JSONUtiles.JSONVotantes;
 
 import java.util.*;
 
@@ -14,7 +14,6 @@ public class Main {
 
         List<Boleta> boletas = gestor.leerBoletas();
         centro.cargarBoletas(boletas);
-
 
         BoletaUnica boletaUnica = new BoletaUnica(new HashSet<>(boletas));
 
@@ -90,7 +89,7 @@ public class Main {
                             System.out.println("ERROR: Boleta inválida, voto no registrado.");
                         }
 
-                        JSONElecciones.guardarVotantes(Padron.getVotantes());
+                        JSONVotantes.guardarVotantes(Padron.getVotantes());
 
                     } catch (VotanteException e) {
                         System.out.println("ERROR:" + e.getMessage());

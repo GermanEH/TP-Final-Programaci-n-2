@@ -1,5 +1,6 @@
-package Clases;
+package JSONUtiles;
 
+import Clases.Votante;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,7 +9,7 @@ import org.json.JSONTokener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONElecciones {
+public class JSONVotantes {
     private static final String JVOTANTES = "App/archivos/votantes.json";
 
     /// METODO PARA DESCERIALIZAR VOTANTES

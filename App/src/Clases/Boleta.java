@@ -8,14 +8,12 @@ public class Boleta {
     private String nombre;
     private String sigla;
     private int lista;
-    private int votos;
     private ArrayList<Candidato> candidatos;
 
     public Boleta(String nombre, String sigla, int lista) {
         this.nombre = nombre;
         this.sigla = sigla;
         this.lista = lista;
-        this.votos = 0;
         this.candidatos = new ArrayList<>();
     }
 
@@ -41,14 +39,6 @@ public class Boleta {
 
     public void setLista(int lista) {
         this.lista = lista;
-    }
-
-    public int getVotos() {
-        return votos;
-    }
-
-    public void setVotos(int votos) {
-        this.votos = votos;
     }
 
     public ArrayList<Candidato> getCandidatos() {
@@ -106,7 +96,4 @@ public class Boleta {
         return false;
     }
 
-    public void aumentarVotos() {
-        votos++;
-    }
 }

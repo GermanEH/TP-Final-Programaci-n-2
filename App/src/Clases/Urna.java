@@ -1,40 +1,56 @@
 package Clases;
 import Interfaces.Registro;
+import JSONUtiles.JSONUrna;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 public class Urna implements Registro<Voto> {
 
-    private List<Voto> urnaVotos;
-
     public Urna() {
-        this.urnaVotos = new ArrayList<>();
     }
 
-    public List<Voto> getUrnaVotos() {
-        return urnaVotos;
+    public List<Voto> getUrnaVotos() throws JSONException {
+        return JSONUrna.leerVotos();
     }
 
-    public void setUrnaVotos(List<Voto> urnaVotos) {
-        this.urnaVotos = urnaVotos;
+    public static void setUrnaVotos(List<Voto> urnaVotos) {
+        try {
+            for (Voto v : urnaVotos) {
+                JSONUrna.guardarVoto(v);
+            }
+        } catch (JSONException e) {
+            System.out.println(e);
+        }
+
     }
 
     @Override
     public void agregar(Voto voto) {
-        this.urnaVotos.add(voto);
+        try {
+            JSONUrna.guardarVoto(voto);
+        } catch (JSONException e) {
+            System.out.println(e);
+        }
     }
 
     @Override
     public void eliminar(Voto voto) {
-        this.urnaVotos.remove(voto);
+        System.out.println("No se puede eliminar votos");
     }
 
     @Override
     public void mostrar() {
-        for (Voto voto : this.urnaVotos) {
-            System.out.println(voto);
+        try {
+            List votos = JSONUrna.leerVotos();
+            for (Object voto : votos) {
+                System.out.println(voto);
+            }
+        }catch(JSONException e){
+            System.out.println(e);
         }
+
     }
 
     @Override

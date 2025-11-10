@@ -1,5 +1,7 @@
-package Clases;
+package JSONUtiles;
 
+import Clases.Boleta;
+import Clases.Candidato;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

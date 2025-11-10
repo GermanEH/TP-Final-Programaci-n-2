@@ -1,5 +1,6 @@
 package Clases;
 
+import JSONUtiles.JSONVotantes;
 
 import java.util.List;
 
@@ -62,14 +63,14 @@ public class Votante extends Persona {
             this.voto = true;
 
 
-            List<Votante> votantes = JSONElecciones.leerVotantes();
+            List<Votante> votantes = JSONVotantes.leerVotantes();
             for (Votante v : votantes) {
                 if (v.getDni().equals(this.dni)) {
                     v.setVoto(true);
                     break;
                 }
             }
-            JSONElecciones.guardarVotantes(votantes);
+            JSONVotantes.guardarVotantes(votantes);
         }
 
         return new Voto(numeroLista, validez);
