@@ -7,15 +7,10 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
         CentroDeVotacion centro = new CentroDeVotacion();
         Padron padron = new Padron();
         GestorDeArchivos gestor = new GestorDeArchivos();
         Urna u = new Urna();
-
-        List<Boleta> boletas = gestor.leerBoletas();
-        centro.cargarBoletas(boletas);
-
         BoletaUnica boletaUnica = new BoletaUnica();
 
         Map<String, String> admins = new HashMap<>();
@@ -23,7 +18,10 @@ public class Main {
         admins.put("German", "4321");
         admins.put("Juan", "1212");
 
-        List<Votante> votantes = gestor.leerVotantes();
+        List<Boleta> boletas = gestor.leerBoletas(); // leemos boletas.json
+        centro.cargarBoletas(boletas);
+
+        List<Votante> votantes = gestor.leerVotantes(); /// leemos votantes.json
         for (Votante v : votantes) {
             try {
                 padron.agregar(v);

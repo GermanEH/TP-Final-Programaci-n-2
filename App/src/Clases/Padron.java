@@ -8,7 +8,7 @@ import java.util.List;
 
 public final class Padron implements Registro<Votante> {
 
-    private static ArrayList<Votante> votantes = new ArrayList<>();
+    private static ArrayList<Votante> votantes = new ArrayList<>(); // votantes.json leido en main
 
     public Padron() {
     }
@@ -17,10 +17,9 @@ public final class Padron implements Registro<Votante> {
         return new ArrayList<>(votantes);
     }
 
-
     @Override
     public void agregar(Votante v) throws VotanteException {
-        if (v == null || v.getDni().isEmpty()){
+        if (v == null || v.getDni().isEmpty()) {
             throw new VotanteException("ERROR: NO SE PERMITE AGREGAR VOTANTE NULO.");
         }
         votantes.add(v);
@@ -28,20 +27,63 @@ public final class Padron implements Registro<Votante> {
 
     @Override
     public void eliminar(Votante votante) {
-    votantes.remove(votante);
+        if (votante == null) {
+            try {
+                throw new VotanteException("ERROR: NO SE PUEDE ELIMINAR VOTANTE NULO.");
+            } catch (VotanteException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if (votantes.isEmpty()) {
+            try {
+                throw new VotanteException("ERROR: LISTA DE VOTANTES VACIA..");
+            } catch (VotanteException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            votantes.remove(votante);
+        }
+
     }
 
     @Override
     public void mostrar() {
-      for (Votante votante : votantes) {
-        System.out.println(votante);
-      }
+        if (votantes.isEmpty()) {
+            try {
+                throw new VotanteException("ERROR: LISTA DE VOTANTES VACIA..");
+            } catch (VotanteException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            for (Votante votante : votantes) {
+                System.out.println(votante);
+            }
+        }
+
     }
 
     @Override
     public Votante buscar(Votante votante) {
-        for (Votante v : votantes){
-            if (v.getNumero() == votante.getNumero()){
+
+        if (votante == null) {
+            try {
+                throw new VotanteException("ERROR: NO SE PUEDE BUSCAR VOTANTE NULO.");
+            } catch (VotanteException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if (votantes.isEmpty()) {
+            try {
+                throw new VotanteException("ERROR: LISTA DE VOTANTES VACIA..");
+            } catch (VotanteException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            votantes.remove(votante);
+        }
+
+        for (Votante v : votantes) {
+            if (v.getNumero() == votante.getNumero()) {
                 return v;
             }
         }
@@ -50,24 +92,28 @@ public final class Padron implements Registro<Votante> {
     }
 
     public Votante buscarPorDniYNVoto(String dni, int numeroVoto) {
-        for (Votante v : votantes) {
-            if (v.getDni().equals(dni) && v.getNumero() == numeroVoto) {
-                return v;
+        if (votantes.isEmpty()) {
+            try {
+                throw new VotanteException("ERROR: LISTA DE VOTANTES VACIA..");
+            } catch (VotanteException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            for (Votante v : votantes) {
+                if (v.getDni().equals(dni) && v.getNumero() == numeroVoto) {
+                    return v;
+                }
             }
         }
+
         return null;
     }
 
     public static boolean buscarPersona(String dni) {
+
+
         for (Votante v : votantes) {
             if (v.getDni().equals(dni)) return true;
-        }
-        return false;
-    }
-
-    public static boolean buscarPersona(int numeroVoto) {
-        for (Votante v : votantes) {
-            if (v.getNumero() == numeroVoto) return true;
         }
         return false;
     }
