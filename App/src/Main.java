@@ -1,27 +1,28 @@
 import Clases.*;
 import Excepciones.VotanteException;
+import JSONUtiles.JSONBoletas;
 import JSONUtiles.JSONVotantes;
+import org.json.JSONException;
+
 import Excepciones.EntradaInvalidaException;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
         CentroDeVotacion centro = new CentroDeVotacion();
         Padron padron = new Padron();
         GestorDeArchivos gestor = new GestorDeArchivos();
         Urna u = new Urna();
-
-        List<Boleta> boletas = gestor.leerBoletas();
-        centro.cargarBoletas(boletas);
-
         BoletaUnica boletaUnica = new BoletaUnica();
 
         Map<String, String> admins = new HashMap<>();
         admins.put("Mauri", "1234");
         admins.put("German", "4321");
         admins.put("Juan", "1212");
+
+        List<Boleta> boletas = gestor.leerBoletas();
+        centro.cargarBoletas(boletas);
 
         List<Votante> votantes = gestor.leerVotantes();
         for (Votante v : votantes) {
@@ -120,6 +121,7 @@ public class Main {
                                     |5. Eliminar candidato.                         | 
                                     |6. Iniciar votacion.                           |
                                     |7. Cerrar votacion.                            | 
+                                    |8. Contar votos.                               | 
                                     |0. Cerrar sesion.                              | 
                                     |-----------------------------------------------| """);
                             System.out.print("OPCION: ");
@@ -135,7 +137,7 @@ public class Main {
                                    int bLista = leerEntero(scan, "Ingrese el numero de lista : ");
                                     Boleta b = new Boleta(bNombre, bSiglas, bLista);
 
-                                    if(boletaUnica.buscarPorLista(bLista) != null){
+                                    if(boletaUnica.buscar(bLista) != null){
                                         System.out.println("ERROR: Ya existe una boleta con ese número de lista.");
                                     } else {
                                         boletaUnica.agregar(b);
@@ -145,7 +147,7 @@ public class Main {
                                 }
                                 case 3 -> {
                                     int nLista = leerEntero(scan, "INGRESE EL NUMERO DE LISTA DE LA BOLETA PARA ELIMINARLA: ");
-                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+                                    Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         boletaUnica.eliminar(b);
                                         gestor.eliminarBoleta(b);
@@ -156,7 +158,7 @@ public class Main {
                                 }
                                 case 4 -> {
                                     int nLista = leerEntero(scan, "INGRESE EL NUMERO DE LISTA DE LA BOLETA DONDE QUIERE AGREGAR UN CANDIDATO: ");
-                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+                                    Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         System.out.print("Ingrese el nombre del candidato : ");
                                         String cNombre = scan.nextLine();
@@ -186,7 +188,7 @@ public class Main {
                                 }
                                 case 5 -> {
                                    int nLista = leerEntero(scan, "INGRESE EL NUMERO DE LISTA DE LA BOLETA DONDE QUIERE ELIMINAR UN CANDIDATO: ");
-                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+                                    Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         System.out.println("Candidatos disponibles:");
                                         int i = 1;
@@ -213,6 +215,23 @@ public class Main {
                                 case 7 -> {
                                     centro.cerrarVotacion();
                                     System.out.println("Votación cerrada.");
+                                }
+                                case 8 -> {
+                                    try {
+                                       Integer ganador = centro.contarVotos();
+
+                                        for (Boleta b : JSONBoletas.leerBoletas()) {
+                                            if (b.getLista() == ganador) {
+                                                System.out.println("GANADOR: " + b);
+                                                break;
+                                            }
+                                        }
+
+                                    } catch (VotanteException e) {
+                                        throw new RuntimeException(e);
+                                    } catch (JSONException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                 }
                                 default -> System.out.println("ERROR: OPCION INVALIDA.");
                             }

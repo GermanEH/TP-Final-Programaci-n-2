@@ -7,6 +7,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CentroDeVotacion {
 
@@ -20,6 +21,7 @@ public class CentroDeVotacion {
         this.Fila = new ArrayList<>();
         this.urna = new Urna();
         this.resultado = new HashMap<>();
+        this.resultado.put(999, 0);
     }
 
     public boolean isEsVotacionAbierta() {
@@ -106,31 +108,35 @@ public class CentroDeVotacion {
             throw new VotanteException("La votación todavía está abierta. Primero debe cerrarse.");
         }
 
-        if(urna.getUrnaVotos().isEmpty()){
+        if (urna.getUrnaVotos().isEmpty()) {
             throw new VotanteException("ERROR: NO HAY VOTOS EN LA URNA.");
         }
 
         for (Voto voto : urna.getUrnaVotos()) {
             if (voto.isValidez()) {
                 int numeroLista = voto.getNumeroLista();
-                resultado.put(numeroLista, resultado.get(numeroLista)+1);
+                resultado.put(numeroLista, resultado.get(numeroLista) + 1);
             } else {
-                // resultado.get(0).aumentarVotos(); // si querés contar votos en blanco
+                resultado.put(999, resultado.get(999) + 1); // votos en blanco
             }
         }
+        Integer votosGanador = 0;
         Integer ganador = 0;
         for (Integer lista : resultado.keySet()) {
-            if (resultado.get(lista) > ganador){
+            if (resultado.get(lista) > votosGanador) {
+                votosGanador = resultado.get(lista);
                 ganador = lista;
             }
         }
 
-        for(Boleta b: JSONBoletas.leerBoletas()){
-            if(b.getLista()==ganador){
-                System.out.println("GANADOR: " + b);
-                break;
-            }
+        for (Map.Entry<Integer, Integer> entry : resultado.entrySet()) {
+            Integer key = entry.getKey();
+            Integer valor = entry.getValue();
+
+            System.out.println(key + " -> " + valor);
         }
+        ;
+
         return ganador;
     }
 }

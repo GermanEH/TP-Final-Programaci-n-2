@@ -240,7 +240,7 @@
         "dni": "20.890.123"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 31,
         "apellido": "Ordoñez Alcaraz",
         "nombre": "Nahuel Alejandro",
@@ -248,7 +248,7 @@
         "dni": "37.012.345"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 32,
         "apellido": "Pacholi",
         "nombre": "Lorenzo",
@@ -256,7 +256,7 @@
         "dni": "33.901.234"
     },
     {
-        "voto": false,
+        "voto": true,
         "numero": 33,
         "apellido": "Preckel",
         "nombre": "Andres",

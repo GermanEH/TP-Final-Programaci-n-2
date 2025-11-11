@@ -50,7 +50,7 @@ public class Votante extends Persona {
             return new Voto(-1, false); // voto inválido
         }
 
-        Boleta b = boletaUnica.buscarPorLista(numeroLista); // Busco la boleta
+        Boleta b = boletaUnica.buscar(numeroLista); // Busco la boleta
         boolean validez = b != null; // Si existe
 
         if (validez) {
