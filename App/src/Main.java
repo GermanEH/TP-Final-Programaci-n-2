@@ -1,6 +1,8 @@
 import Clases.*;
 import Excepciones.VotanteException;
+import JSONUtiles.JSONBoletas;
 import JSONUtiles.JSONVotantes;
+import org.json.JSONException;
 
 import java.util.*;
 
@@ -123,6 +125,7 @@ public class Main {
                                     |5. Eliminar candidato.                         | 
                                     |6. Iniciar votacion.                           |
                                     |7. Cerrar votacion.                            | 
+                                    |8. Contar votos.                               | 
                                     |0. Cerrar sesion.                              | 
                                     |-----------------------------------------------| """);
                             System.out.print("OPCION: ");
@@ -229,6 +232,23 @@ public class Main {
                                 case 7 -> {
                                     centro.cerrarVotacion();
                                     System.out.println("Votación cerrada.");
+                                }
+                                case 8 -> {
+                                    try {
+                                       Integer ganador = centro.contarVotos();
+
+                                        for (Boleta b : JSONBoletas.leerBoletas()) {
+                                            if (b.getLista() == ganador) {
+                                                System.out.println("GANADOR: " + b);
+                                                break;
+                                            }
+                                        }
+
+                                    } catch (VotanteException e) {
+                                        throw new RuntimeException(e);
+                                    } catch (JSONException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                 }
                                 default -> System.out.println("ERROR: OPCION INVALIDA.");
                             }
