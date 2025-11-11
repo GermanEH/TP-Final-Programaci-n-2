@@ -20,10 +20,10 @@ public class Main {
         admins.put("German", "4321");
         admins.put("Juan", "1212");
 
-        List<Boleta> boletas = gestor.leerBoletas(); // leemos boletas.json
+        List<Boleta> boletas = gestor.leerBoletas();
         centro.cargarBoletas(boletas);
 
-        List<Votante> votantes = gestor.leerVotantes(); /// leemos votantes.json
+        List<Votante> votantes = gestor.leerVotantes();
         for (Votante v : votantes) {
             try {
                 padron.agregar(v);
