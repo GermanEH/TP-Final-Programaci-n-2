@@ -53,12 +53,7 @@ public class BoletaUnica implements Registro<Boleta> {
     }
 
     @Override
-    public Boleta buscar(Boleta boleta) {
-        return null;
-    }
-
-    public Boleta buscarPorLista(int lista) {
-
+    public Boleta buscar(int lista) {
         List<Boleta> boletas = JSONBoletas.leerBoletas();
 
         for (Boleta boleta : boletas) {

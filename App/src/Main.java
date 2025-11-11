@@ -4,6 +4,7 @@ import JSONUtiles.JSONBoletas;
 import JSONUtiles.JSONVotantes;
 import org.json.JSONException;
 
+import Excepciones.EntradaInvalidaException;
 import java.util.*;
 
 public class Main {
@@ -42,9 +43,8 @@ public class Main {
                     |0. Cerrar programa.                            | 
                     |-----------------------------------------------| 
                     """);
-            System.out.print("OPCION: ");
-            menu = scan.nextInt();
-            scan.nextLine();
+
+            menu = leerEntero(scan, "OPCION: ");
             switch (menu) {
                 case 0: {
                     System.out.println("CERRANDO PROGRAMA...");
@@ -55,9 +55,7 @@ public class Main {
                         System.out.print("Ingrese su DNI: ");
                         String dni = scan.nextLine();
 
-                        System.out.print("Ingrese su número de votación: ");
-                        int numVoto = scan.nextInt();
-                        scan.nextLine();
+                        int numVoto = leerEntero(scan, "Ingrese su número de votación: ");
 
                         Votante votante = padron.buscarPorDniYNVoto(dni, numVoto);
                         if (votante == null) {
@@ -79,9 +77,7 @@ public class Main {
                         System.out.println("BOLETAS DISPONIBLES PARA VOTAR:");
                         boletaUnica.mostrar();
 
-                        System.out.print("INGRESE EL NÚMERO DE LISTA PARA VOTAR: ");
-                        int nLista = scan.nextInt();
-                        scan.nextLine();
+                        int nLista = leerEntero(scan, "INGRESE EL NÚMERO DE LISTA PARA VOTAR: ");
 
                         try {
                             centro.procesarVoto(votante, boletaUnica, nLista);
@@ -129,8 +125,7 @@ public class Main {
                                     |0. Cerrar sesion.                              | 
                                     |-----------------------------------------------| """);
                             System.out.print("OPCION: ");
-                            menuAdmin = scan.nextInt();
-                            scan.nextLine();
+                            menuAdmin = leerEntero(scan, "OPCION: ");
                             switch (menuAdmin) {
                                 case 0 -> System.out.println("CERRANDO SESION DE ADMINISTRADOR...");
                                 case 1 -> boletaUnica.mostrar();
@@ -139,9 +134,7 @@ public class Main {
                                     String bNombre = scan.nextLine();
                                     System.out.print("Las siglas de la boleta : ");
                                     String bSiglas = scan.nextLine();
-                                    System.out.print("Ingrese el numero de lista : ");
-                                    int bLista = scan.nextInt();
-                                    scan.nextLine();
+                                   int bLista = leerEntero(scan, "Ingrese el numero de lista : ");
                                     Boleta b = new Boleta(bNombre, bSiglas, bLista);
 
                                     if(boletaUnica.buscar(bLista) != null){
@@ -153,9 +146,7 @@ public class Main {
 
                                 }
                                 case 3 -> {
-                                    System.out.print("Ingrese el numero de lista de la boleta para eliminarla : ");
-                                    int nLista = scan.nextInt();
-                                    scan.nextLine();
+                                    int nLista = leerEntero(scan, "INGRESE EL NUMERO DE LISTA DE LA BOLETA PARA ELIMINARLA: ");
                                     Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         boletaUnica.eliminar(b);
@@ -166,18 +157,14 @@ public class Main {
                                     }
                                 }
                                 case 4 -> {
-                                    System.out.print("Ingrese el número de lista de la boleta donde quiere agregar un candidato: ");
-                                    int nLista = scan.nextInt();
-                                    scan.nextLine();
+                                    int nLista = leerEntero(scan, "INGRESE EL NUMERO DE LISTA DE LA BOLETA DONDE QUIERE AGREGAR UN CANDIDATO: ");
                                     Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         System.out.print("Ingrese el nombre del candidato : ");
                                         String cNombre = scan.nextLine();
                                         System.out.print("Ingrese el apellido del candidato : ");
                                         String cApellido = scan.nextLine();
-                                        System.out.print("Ingrese la edad del candidato : ");
-                                        int cEdad = scan.nextInt();
-                                        scan.nextLine();
+                                        int cEdad = leerEntero(scan, "INGRESE LA EDAD DEL CANDIDATO: ");
                                         System.out.print("Ingrese el DNI del candidato : ");
                                         String cDni = scan.nextLine();
                                         System.out.print("Ingrese el puesto del candidato : ");
@@ -200,9 +187,7 @@ public class Main {
                                     }
                                 }
                                 case 5 -> {
-                                    System.out.print("Ingrese el número de lista de la boleta donde quiere eliminar un candidato: ");
-                                    int nLista = scan.nextInt();
-                                    scan.nextLine();
+                                   int nLista = leerEntero(scan, "INGRESE EL NUMERO DE LISTA DE LA BOLETA DONDE QUIERE ELIMINAR UN CANDIDATO: ");
                                     Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         System.out.println("Candidatos disponibles:");
@@ -211,9 +196,7 @@ public class Main {
                                             System.out.println(i + ". " + c.getNombre() + " " + c.getApellido() + " - " + c.getPuesto());
                                             i++;
                                         }
-                                        System.out.print("Ingrese el número del candidato a eliminar: ");
-                                        int numCandidato = scan.nextInt();
-                                        scan.nextLine();
+                                        int numCandidato = leerEntero(scan, "INGRESE EL NUMERO DEL CANDIDATO A ELIMINAR: ");
                                         if (numCandidato > 0 && numCandidato <= b.getCandidatos().size()) {
                                             Candidato cEliminar = b.getCandidatos().get(numCandidato - 1);
                                             b.eliminarCandidato(cEliminar);
@@ -270,4 +253,24 @@ public class Main {
         System.out.println("PRESIONE ENTER PARA CONTINUAR.");
         scan.nextLine();
     }
+
+
+    private static int leerEntero(Scanner scan, String mensaje) {
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                String entrada = scan.nextLine();
+                int numero = Integer.parseInt(entrada);
+                if (numero < 0) {
+                    throw new EntradaInvalidaException("Error: No se permiten números negativos.");
+                }
+                return numero;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un número entero válido.");
+            } catch (EntradaInvalidaException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
 }
