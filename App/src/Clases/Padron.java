@@ -63,27 +63,18 @@ public final class Padron implements Registro<Votante> {
     }
 
     @Override
-    public Votante buscar(Votante votante) {
+    public Votante buscar(int nVotante) {
 
-        if (votante == null) {
-            try {
-                throw new VotanteException("ERROR: NO SE PUEDE BUSCAR VOTANTE NULO.");
-            } catch (VotanteException e) {
-                throw new RuntimeException(e);
-            }
-        }
         if (votantes.isEmpty()) {
             try {
                 throw new VotanteException("ERROR: LISTA DE VOTANTES VACIA..");
             } catch (VotanteException e) {
                 throw new RuntimeException(e);
             }
-        } else {
-            votantes.remove(votante);
         }
 
         for (Votante v : votantes) {
-            if (v.getNumero() == votante.getNumero()) {
+            if (v.getNumero() == nVotante) {
                 return v;
             }
         }

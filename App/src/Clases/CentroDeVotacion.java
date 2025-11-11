@@ -7,6 +7,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CentroDeVotacion {
 
@@ -119,12 +120,22 @@ public class CentroDeVotacion {
                 resultado.put(999, resultado.get(999) + 1); // votos en blanco
             }
         }
+        Integer votosGanador = 0;
         Integer ganador = 0;
         for (Integer lista : resultado.keySet()) {
-            if (resultado.get(lista) > ganador) {
+            if (resultado.get(lista) > votosGanador) {
+                votosGanador = resultado.get(lista);
                 ganador = lista;
             }
         }
+
+        for (Map.Entry<Integer, Integer> entry : resultado.entrySet()) {
+            Integer key = entry.getKey();
+            Integer valor = entry.getValue();
+
+            System.out.println(key + " -> " + valor);
+        }
+        ;
 
         return ganador;
     }

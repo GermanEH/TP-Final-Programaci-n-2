@@ -50,7 +50,7 @@ public class Urna implements Registro<Voto> {
     }
 
     @Override
-    public Voto buscar(Voto voto) {
+    public Voto buscar(int n) {
         return null;
     }
 }

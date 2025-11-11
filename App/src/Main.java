@@ -144,7 +144,7 @@ public class Main {
                                     scan.nextLine();
                                     Boleta b = new Boleta(bNombre, bSiglas, bLista);
 
-                                    if(boletaUnica.buscarPorLista(bLista) != null){
+                                    if(boletaUnica.buscar(bLista) != null){
                                         System.out.println("ERROR: Ya existe una boleta con ese número de lista.");
                                     } else {
                                         boletaUnica.agregar(b);
@@ -156,7 +156,7 @@ public class Main {
                                     System.out.print("Ingrese el numero de lista de la boleta para eliminarla : ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
-                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+                                    Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         boletaUnica.eliminar(b);
                                         gestor.eliminarBoleta(b);
@@ -169,7 +169,7 @@ public class Main {
                                     System.out.print("Ingrese el número de lista de la boleta donde quiere agregar un candidato: ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
-                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+                                    Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         System.out.print("Ingrese el nombre del candidato : ");
                                         String cNombre = scan.nextLine();
@@ -203,7 +203,7 @@ public class Main {
                                     System.out.print("Ingrese el número de lista de la boleta donde quiere eliminar un candidato: ");
                                     int nLista = scan.nextInt();
                                     scan.nextLine();
-                                    Boleta b = boletaUnica.buscarPorLista(nLista);
+                                    Boleta b = boletaUnica.buscar(nLista);
                                     if (b != null) {
                                         System.out.println("Candidatos disponibles:");
                                         int i = 1;
